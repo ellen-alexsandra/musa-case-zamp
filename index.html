@@ -3,528 +3,398 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Musa × Zamp — Relatório Anual 2025–2026</title>
-<meta name="description" content="Um ano de gestão digitalizada. Três marcas. 804 lojas.">
+<title>Musa × Zamp — Gestão de Resíduos em Escala</title>
+<meta name="description" content="804 lojas. 59 operadores. Um contrato. Resíduo virou dado, dado virou decisão.">
+<meta property="og:title"       content="Musa × Zamp — Gestão de Resíduos em Escala">
+<meta property="og:description" content="804 lojas. 59 operadores. Um contrato. Como digitalizamos a gestão de resíduos de uma das maiores redes de food service do Brasil.">
+<meta property="og:type"        content="website">
+<meta name="twitter:card"       content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --o:     #FFBA86;
-  --o-dim: rgba(255,186,134,0.22);
-  --o-txt: #B5733A;
-  --dk:    #232323;
-  --dk2:   #1c1c1c;
-  --lt:    #ffffff;
-  --cr:    #f5f2ed;
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans:  'Inter', -apple-system, Arial, sans-serif;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --o:#FFBA86;--o-txt:#B5733A;
+  --dk:#232323;--dk2:#1c1c1c;
+  --lt:#ffffff;--cr:#f5f2ed;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',-apple-system,Arial,sans-serif;
 }
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
 
-html, body {
-  width: 100%;
-  min-height: 100vh;
-  font-family: var(--sans);
-  background: #161616;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 16px;
+/* SECTIONS */
+.section{width:100%;min-height:100vh;display:flex;align-items:center;padding:88px 0}
+.s-dk{background:var(--dk)}.s-lt{background:var(--lt)}.s-cr{background:var(--cr)}
+.container{width:100%;max-width:960px;margin:0 auto;padding:0 60px}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+/* SIDE DOTS */
+.side-nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:100}
+.side-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);cursor:pointer;transition:all .25s ease;border:none;padding:0}
+.side-dot.active{background:var(--o);transform:scale(1.35)}
+.side-dot:hover:not(.active){background:rgba(255,255,255,.45)}
+
+/* FLOATING CTA */
+.float-cta{
+  position:fixed;bottom:28px;right:50px;
+  background:var(--o);color:#1a1a1a;
+  font-family:var(--sans);font-size:13px;font-weight:600;
+  padding:12px 22px;border-radius:24px;text-decoration:none;
+  z-index:100;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .4s ease,transform .4s ease,background .15s;
+  pointer-events:none;
+  white-space:nowrap;
 }
+.float-cta.show{opacity:1;transform:translateY(0);pointer-events:all}
+.float-cta:hover{background:#ffc99e}
 
-/* ── DECK ─────────────────────────────────────── */
-.deck {
-  width: 100%;
-  max-width: 1000px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+/* EYEBROW */
+.ey{display:flex;align-items:center;gap:9px;margin-bottom:22px;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;font-family:var(--sans)}
+.ey-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.ey-line{width:30px;height:1px}
+.s-dk .ey{color:var(--o)}.s-dk .ey-dot{background:var(--o)}.s-dk .ey-line{background:rgba(255,186,134,.28)}
+.s-lt .ey,.s-cr .ey{color:var(--o-txt)}
+.s-lt .ey-dot,.s-cr .ey-dot{background:var(--o-txt)}
+.s-lt .ey-line,.s-cr .ey-line{background:rgba(181,115,58,.22)}
+
+/* TYPOGRAPHY */
+.h1{font-family:var(--serif);font-size:clamp(36px,5.5vw,64px);font-weight:700;line-height:1.1;color:#fff;margin-bottom:20px}
+.h1 em{font-style:italic;color:#666}
+.h2{font-family:var(--serif);font-size:clamp(30px,4.5vw,54px);font-weight:700;line-height:1.12;color:#1a1a1a;margin-bottom:16px}
+.bd{font-size:clamp(14px,1.4vw,16px);line-height:1.75;max-width:520px}
+.s-dk .bd{color:#999}.s-lt .bd,.s-cr .bd{color:#606060}
+
+/* COVER */
+.logos{display:flex;align-items:center;gap:14px;margin-bottom:52px}
+.lm{font-size:20px;font-weight:600;color:#fff}
+.lsep{color:#444;font-size:22px}
+.lz{font-size:12px;font-weight:700;letter-spacing:2.5px;color:#fff;border:1.5px solid rgba(255,255,255,.25);padding:4px 13px;border-radius:4px;text-transform:uppercase}
+.pill{display:inline-flex;border:1px solid rgba(255,186,134,.55);color:var(--o);font-size:10px;font-weight:600;letter-spacing:2.5px;padding:5px 16px;border-radius:20px;margin-bottom:32px;text-transform:uppercase}
+
+/* METRIC GRID */
+.mgrid{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.mc{flex:1;min-width:160px;border-radius:10px;padding:24px 26px}
+.mc-d{background:rgba(255,255,255,.07)}
+.mc-l{background:#fff;box-shadow:0 1px 8px rgba(0,0,0,.07)}
+.mv{font-family:var(--sans);font-size:clamp(28px,3.5vw,42px);font-weight:600;line-height:1;margin-bottom:8px}
+.mv-o{color:var(--o)}.mv-dk{color:#1a1a1a}.mv-bl{color:#6FB3F5}
+.ml{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999;line-height:1.4}
+.ms{font-size:11px;color:#777;margin-top:5px;line-height:1.45}
+
+/* BRAND ROWS */
+.blist{display:flex;flex-direction:column;gap:12px;margin-top:36px;max-width:560px}
+.brow{background:rgba(255,255,255,.065);border-radius:10px;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.bn{font-size:16px;font-weight:500;color:#c8c8c8}
+.bv{font-size:28px;font-weight:600;color:#fff}
+.bu{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-left:7px;font-weight:500}
+
+/* TAGS */
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.tag{border:1px solid #383838;color:#888;font-size:11px;padding:5px 14px;border-radius:20px}
+
+/* HERO NUMBER */
+.hero{font-family:var(--serif);font-size:clamp(80px,16vw,160px);font-weight:700;color:var(--o);line-height:1;margin-bottom:22px}
+
+/* COMPARE */
+.cmpbox{display:inline-flex;background:rgba(255,255,255,.075);border-radius:12px;overflow:hidden;margin-top:28px}
+.cmps{padding:18px 42px;text-align:center}
+.cmpsep{width:1px;background:rgba(255,255,255,.08)}
+.cv-g{font-size:26px;font-weight:600;color:var(--o);margin-bottom:6px}
+.cv-b{font-size:26px;font-weight:600;color:#4a4a4a;margin-bottom:6px}
+.cl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#666}
+
+/* IMPACT */
+.igrid{display:flex;gap:14px;margin-top:36px}
+.ic{flex:1;background:rgba(255,255,255,.065);border-radius:10px;padding:24px 22px}
+.iv{font-size:clamp(22px,3vw,32px);font-weight:600;color:var(--o);margin-bottom:6px}
+.il{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#888;line-height:1.4}
+.is{font-size:11px;color:#555;margin-top:6px;line-height:1.55}
+
+/* TIERS */
+.tgrid{display:flex;gap:14px;margin-top:36px}
+.tc{flex:1;border-radius:10px;padding:22px}
+.t-top{background:rgba(255,186,134,.1);border:1px solid rgba(255,186,134,.2)}
+.t-mid{background:rgba(255,255,255,.055)}
+.t-bot{background:rgba(255,255,255,.03)}
+.tl{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.tl-o{color:var(--o)}.tl-g{color:#888}.tl-d{color:#555}
+.tn{font-size:clamp(26px,3vw,36px);font-weight:600;line-height:1;margin-bottom:8px}
+.ts{font-size:12px;color:#777;line-height:1.6}
+
+/* STATE GRID */
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px;max-width:520px}
+.srow{border-radius:8px;padding:11px 18px;display:flex;justify-content:space-between;align-items:center}
+.s-cr .srow{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.s-cr .sn{font-size:12px;font-weight:500;color:#1a1a1a;letter-spacing:.5px}
+.s-cr .sv{font-size:14px;font-weight:600;color:var(--o-txt)}
+.su{font-size:10px;margin-left:3px;opacity:.55}
+
+/* CHART */
+.chart-outer{background:#fff;border-radius:10px;padding:22px 24px;margin-top:32px;border:.5px solid #ececec;max-width:680px}
+.chart-lbl{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#c0c0c0;margin-bottom:16px}
+.chart-months{display:flex;justify-content:space-between;margin-top:10px}
+.chart-months span{font-size:9px;color:#c0c0c0}
+
+/* CTA */
+.cta-card{background:#1a1a1a;border-radius:14px;padding:36px 40px;display:inline-block;min-width:360px;margin-top:36px}
+.cta-name{font-size:18px;font-weight:600;color:#fff;margin-bottom:3px}
+.cta-role{font-size:12px;color:#555;margin-bottom:22px}
+.cta-contact{font-size:15px;color:var(--o);line-height:2.2}
+.cta-contact a{color:var(--o);text-decoration:none}
+.cta-contact a:hover{text-decoration:underline}
+.cta-tagline{font-family:var(--serif);font-size:13px;font-style:italic;color:#3a3a3a;margin-top:22px;padding-top:20px;border-top:.5px solid #2a2a2a}
+
+/* FOOTER */
+.footer{background:var(--dk2);padding:28px 60px;text-align:center}
+.footer span{font-size:11px;color:#333;letter-spacing:1px}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .container{padding:0 24px}
+  .section{padding:64px 0}
+  .mgrid,.igrid,.tgrid{flex-direction:column}
+  .sgrid{grid-template-columns:1fr}
+  .cmpbox{flex-direction:column;width:100%}
+  .cmpsep{width:100%;height:1px}
+  .side-nav{display:none}
+  .float-cta{right:16px;bottom:16px;font-size:12px;padding:10px 16px}
+  .cta-card{min-width:unset;width:100%}
+  .hero{font-size:clamp(64px,20vw,100px)}
+  .footer{padding:24px}
 }
-
-/* ── PROGRESS BAR ─────────────────────────────── */
-.pbar-track { height: 3px; background: #111; }
-.pbar { height: 3px; background: var(--o); width: 9.09%; transition: width 0.4s ease; }
-
-/* ── SLIDES CONTAINER — fixed 16:9 ratio ──────── */
-.slides-wrap {
-  position: relative;
-  width: 100%;
-  /* 16:9 aspect ratio */
-  padding-bottom: 56.25%;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 5% 7%;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s ease;
-}
-.slide.on { opacity: 1; pointer-events: all; }
-
-.s-dk { background: var(--dk); }
-.s-lt { background: var(--lt); }
-.s-cr { background: var(--cr); }
-
-/* ── COUNTER ──────────────────────────────────── */
-.cnt {
-  position: absolute;
-  top: 4%;
-  right: 3%;
-  font-size: clamp(9px, 1vw, 11px);
-  letter-spacing: 1.5px;
-  font-family: var(--sans);
-}
-.s-dk .cnt { color: rgba(255,255,255,0.2); }
-.s-lt .cnt, .s-cr .cnt { color: rgba(0,0,0,0.18); }
-
-/* ── EYEBROW ──────────────────────────────────── */
-.ey {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: clamp(10px, 2%, 20px);
-  font-size: clamp(8px, 0.95vw, 11px);
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  font-family: var(--sans);
-}
-.ey-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-.ey-line { width: 28px; height: 1px; }
-.s-dk .ey       { color: var(--o); }
-.s-dk .ey-dot   { background: var(--o); }
-.s-dk .ey-line  { background: rgba(255,186,134,0.28); }
-.s-lt .ey, .s-cr .ey      { color: var(--o-txt); }
-.s-lt .ey-dot, .s-cr .ey-dot { background: var(--o-txt); }
-.s-lt .ey-line, .s-cr .ey-line { background: rgba(181,115,58,0.22); }
-
-/* ── TYPOGRAPHY ───────────────────────────────── */
-.h1 {
-  font-family: var(--serif);
-  font-size: clamp(22px, 3.6vw, 40px);
-  font-weight: 700;
-  line-height: 1.13;
-  margin-bottom: clamp(8px, 1.5%, 18px);
-  color: #fff;
-}
-.h1 em { font-style: italic; color: #686868; }
-
-.h2 {
-  font-family: var(--serif);
-  font-size: clamp(20px, 3.2vw, 36px);
-  font-weight: 700;
-  line-height: 1.14;
-  margin-bottom: clamp(8px, 1.2%, 14px);
-  color: #1a1a1a;
-}
-
-.bd {
-  font-size: clamp(11px, 1.2vw, 14px);
-  line-height: 1.72;
-  max-width: 52%;
-  font-weight: 400;
-}
-.s-dk .bd { color: #9a9a9a; }
-.s-lt .bd, .s-cr .bd { color: #606060; }
-
-/* ── COVER ────────────────────────────────────── */
-.logos {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: clamp(20px, 5%, 48px);
-}
-.lm   { font-family: var(--sans); font-size: clamp(14px, 1.7vw, 20px); font-weight: 600; color: #fff; }
-.lsep { color: #444; font-size: clamp(16px, 2vw, 22px); }
-.lz   {
-  font-size: clamp(9px, 1.1vw, 13px);
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  color: #fff;
-  border: 1.5px solid rgba(255,255,255,0.25);
-  padding: 3px 10px;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-
-.pill {
-  display: inline-flex;
-  border: 1px solid rgba(255,186,134,0.55);
-  color: var(--o);
-  font-size: clamp(8px, 0.85vw, 10px);
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  padding: 4px 14px;
-  border-radius: 20px;
-  margin-bottom: clamp(12px, 2.5%, 28px);
-  text-transform: uppercase;
-  font-family: var(--sans);
-  width: fit-content;
-}
-
-/* ── METRIC GRID ──────────────────────────────── */
-.mgrid { display: flex; gap: 10px; margin-top: clamp(10px, 2%, 24px); flex-wrap: wrap; }
-.mc   { flex: 1; min-width: 100px; border-radius: 8px; padding: clamp(10px, 1.8%, 20px); }
-.mc-d { background: rgba(255,255,255,0.07); }
-.mc-l { background: #fff; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
-.mc-c { background: #fff; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
-.mv   { font-family: var(--sans); font-size: clamp(20px, 2.8vw, 32px); font-weight: 600; line-height: 1; margin-bottom: 5px; }
-.mv-o  { color: var(--o); }
-.mv-dk { color: #1a1a1a; }
-.mv-bl { color: #6FB3F5; }
-.ml { font-size: clamp(7px, 0.8vw, 9px); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #999; line-height: 1.4; font-family: var(--sans); }
-.ms { font-size: clamp(8px, 0.9vw, 10px); color: #777; margin-top: 3px; line-height: 1.4; }
-
-/* ── BRAND ROWS ───────────────────────────────── */
-.blist { display: flex; flex-direction: column; gap: 8px; margin-top: clamp(12px, 2%, 24px); }
-.brow {
-  background: rgba(255,255,255,0.065);
-  border-radius: 8px;
-  padding: clamp(8px, 1.2%, 14px) clamp(12px, 1.8%, 22px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.bn { font-size: clamp(11px, 1.2vw, 14px); font-weight: 500; color: #c8c8c8; }
-.bv { font-size: clamp(16px, 1.9vw, 22px); font-weight: 600; color: #fff; }
-.bu { font-size: clamp(7px, 0.8vw, 9px); letter-spacing: 1.5px; text-transform: uppercase; color: var(--o); margin-left: 5px; font-weight: 500; }
-
-/* ── TAGS ─────────────────────────────────────── */
-.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: clamp(8px, 1.5%, 16px); }
-.tag  { border: 1px solid #383838; color: #888; font-size: clamp(8px, 0.85vw, 10px); padding: 3px 10px; border-radius: 20px; }
-
-/* ── HERO NUMBER ──────────────────────────────── */
-.hero {
-  font-family: var(--serif);
-  font-size: clamp(56px, 9.5vw, 108px);
-  font-weight: 700;
-  color: var(--o);
-  line-height: 1;
-  margin-bottom: clamp(10px, 1.8%, 18px);
-}
-
-/* ── COMPARE BOX ──────────────────────────────── */
-.cmpbox { display: inline-flex; background: rgba(255,255,255,0.075); border-radius: 10px; overflow: hidden; margin-top: clamp(10px, 1.8%, 20px); }
-.cmps   { padding: clamp(8px, 1.2%, 14px) clamp(20px, 3%, 36px); text-align: center; }
-.cmpsep { width: 1px; background: rgba(255,255,255,0.08); }
-.cv-g { font-size: clamp(14px, 1.7vw, 20px); font-weight: 600; color: var(--o); margin-bottom: 4px; }
-.cv-b { font-size: clamp(14px, 1.7vw, 20px); font-weight: 600; color: #505050; margin-bottom: 4px; }
-.cl   { font-size: clamp(7px, 0.8vw, 9px); letter-spacing: 1.5px; text-transform: uppercase; color: #666; font-family: var(--sans); }
-
-/* ── IMPACT GRID ──────────────────────────────── */
-.igrid { display: flex; gap: 10px; margin-top: clamp(10px, 1.8%, 22px); }
-.ic    { flex: 1; background: rgba(255,255,255,0.065); border-radius: 8px; padding: clamp(10px, 1.6%, 18px); }
-.iv    { font-size: clamp(18px, 2.2vw, 26px); font-weight: 600; color: var(--o); margin-bottom: 4px; }
-.il    { font-size: clamp(7px, 0.8vw, 9px); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #888; line-height: 1.4; }
-.is    { font-size: clamp(8px, 0.85vw, 10px); color: #555; margin-top: 4px; line-height: 1.5; }
-
-/* ── TIERS ────────────────────────────────────── */
-.tgrid { display: flex; gap: 10px; margin-top: clamp(10px, 1.8%, 20px); }
-.tc    { flex: 1; border-radius: 8px; padding: clamp(10px, 1.5%, 17px); }
-.t-top { background: rgba(255,186,134,0.1); border: 1px solid rgba(255,186,134,0.2); }
-.t-mid { background: rgba(255,255,255,0.055); }
-.t-bot { background: rgba(255,255,255,0.03); }
-.tl    { font-size: clamp(7px, 0.8vw, 9px); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; font-family: var(--sans); }
-.tl-o  { color: var(--o); } .tl-g { color: #888; } .tl-d { color: #555; }
-.tn    { font-size: clamp(20px, 2.5vw, 28px); font-weight: 600; line-height: 1; margin-bottom: 6px; }
-.ts    { font-size: clamp(8px, 0.9vw, 10px); color: #777; line-height: 1.6; }
-
-/* ── STATE GRID ───────────────────────────────── */
-.sgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: clamp(10px, 1.8%, 20px); }
-.srow  { border-radius: 6px; padding: clamp(6px, 1%, 9px) clamp(10px, 1.4%, 16px); display: flex; justify-content: space-between; align-items: center; }
-.s-dk .srow { background: rgba(255,255,255,0.055); }
-.s-cr .srow { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-.s-dk .sn   { font-size: clamp(9px, 1vw, 11px); font-weight: 500; color: #c0c0c0; letter-spacing: 0.5px; }
-.s-cr .sn   { font-size: clamp(9px, 1vw, 11px); font-weight: 500; color: #1a1a1a; letter-spacing: 0.5px; }
-.s-dk .sv   { font-size: clamp(11px, 1.2vw, 13px); font-weight: 600; color: var(--o); }
-.s-cr .sv   { font-size: clamp(11px, 1.2vw, 13px); font-weight: 600; color: var(--o-txt); }
-.su         { font-size: clamp(7px, 0.75vw, 9px); margin-left: 3px; opacity: 0.6; }
-
-/* ── CHART ────────────────────────────────────── */
-.chart-wrap {
-  background: #fff;
-  border-radius: 8px;
-  padding: clamp(10px, 1.6%, 18px);
-  margin-top: clamp(10px, 1.8%, 18px);
-  border: 0.5px solid #ececec;
-  width: 100%;
-}
-.chart-lbl    { font-size: clamp(7px, 0.8vw, 9px); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #c0c0c0; margin-bottom: 10px; }
-.chart-months { display: flex; justify-content: space-between; margin-top: 6px; padding: 0 2px; }
-.chart-months span { font-size: clamp(6px, 0.75vw, 8px); color: #c0c0c0; }
-
-/* ── CTA ──────────────────────────────────────── */
-.cta-card {
-  background: #1a1a1a;
-  border-radius: 10px;
-  padding: clamp(14px, 2.2%, 28px) clamp(18px, 3%, 36px);
-  margin-top: clamp(10px, 1.8%, 20px);
-  width: fit-content;
-  min-width: 320px;
-}
-.cta-name    { font-size: clamp(12px, 1.4vw, 16px); font-weight: 600; color: #fff; margin-bottom: 2px; }
-.cta-role    { font-size: clamp(9px, 1vw, 11px); color: #555; margin-bottom: clamp(8px, 1.4%, 16px); }
-.cta-contact { font-size: clamp(10px, 1.1vw, 13px); color: var(--o); line-height: 2; }
-.cta-contact a { color: var(--o); text-decoration: none; }
-.cta-tagline {
-  font-family: var(--serif);
-  font-size: clamp(9px, 1vw, 12px);
-  font-style: italic;
-  color: #3a3a3a;
-  margin-top: clamp(8px, 1.2%, 16px);
-  padding-top: clamp(8px, 1.2%, 14px);
-  border-top: 0.5px solid #2a2a2a;
-}
-
-/* ── NAVIGATION ───────────────────────────────── */
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 24px;
-  background: var(--dk2);
-  border-top: 0.5px solid #2a2a2a;
-}
-.nb {
-  background: transparent;
-  border: 1px solid #3c3c3c;
-  color: #c0c0c0;
-  font-size: clamp(10px, 1vw, 12px);
-  font-weight: 500;
-  padding: 7px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: var(--sans);
-  letter-spacing: 0.3px;
-  transition: border-color 0.15s, color 0.15s;
-}
-.nb:hover             { border-color: var(--o); color: var(--o); }
-.nb:disabled          { opacity: 0.25; cursor: default; }
-.nb:disabled:hover    { border-color: #3c3c3c; color: #c0c0c0; }
-
-.drow { display: flex; gap: 6px; align-items: center; }
-.dot  { width: 6px; height: 6px; border-radius: 50%; background: #383838; cursor: pointer; transition: all 0.22s ease; }
-.dot.on     { background: var(--o); width: 20px; border-radius: 3px; }
-.dot:hover:not(.on) { background: #666; }
 </style>
 </head>
 <body>
 
-<div class="deck">
-  <div class="pbar-track"><div class="pbar" id="pb"></div></div>
-  <div class="slides-wrap" id="sc"></div>
-  <nav class="nav">
-    <button class="nb" id="pvb" onclick="go(cur-1)" disabled>← Anterior</button>
-    <div class="drow" id="dr"></div>
-    <button class="nb" id="nxb" onclick="go(cur+1)">Próximo →</button>
-  </nav>
-</div>
+<a href="#cta" class="float-cta" id="floatCta">Falar com Anderson →</a>
+<nav class="side-nav" id="sideNav"></nav>
+
+<!-- 1. COVER -->
+<section class="section s-dk" id="sec-0" data-label="Início">
+  <div class="container">
+    <div class="reveal"><div class="logos"><div class="lm">Musa</div><div class="lsep">|</div><div class="lz">ZAMP</div></div></div>
+    <div class="reveal d1"><div class="pill">Relatório Anual · 2025–2026</div></div>
+    <div class="reveal d2"><h1 class="h1">Construímos juntos algo<br>que vai além da coleta.<br><em>Este relatório é a prova disso.</em></h1></div>
+    <div class="reveal d3"><p class="bd">Um ano de gestão digitalizada. Três marcas. 804 lojas.<br>Resíduo virou dado, dado virou decisão, e decisão virou resultado.</p></div>
+  </div>
+</section>
+
+<!-- 2. ESCOPO -->
+<section class="section s-dk" id="sec-1" data-label="Escopo">
+  <div class="container">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>O Escopo da Operação<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><h1 class="h1">Três marcas.<br>804 lojas.<br>Uma operação.</h1></div>
+    <div class="blist">
+      <div class="reveal d2"><div class="brow"><div class="bn">Burger King</div><div><span class="bv">87%</span><span class="bu">das unidades</span></div></div></div>
+      <div class="reveal d3"><div class="brow"><div class="bn">Popeyes</div><div><span class="bv">11%</span><span class="bu">das unidades</span></div></div></div>
+      <div class="reveal d4"><div class="brow" style="opacity:.5"><div class="bn">Starbucks</div><div><span class="bv">2%</span><span class="bu">das unidades</span></div></div></div>
+    </div>
+    <div class="reveal d4"><div class="tags" style="margin-top:24px"><div class="tag">Resíduo Comum</div><div class="tag">Reciclável</div><div class="tag">Orgânicos</div><div class="tag">Óleo Vegetal</div><div class="tag">Papelão</div></div></div>
+  </div>
+</section>
+
+<!-- 3. CONFORMIDADE -->
+<section class="section s-lt" id="sec-2" data-label="Conformidade">
+  <div class="container">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>Conformidade e Rastreabilidade<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><h2 class="h2">59 operadores.<br>Um único contrato.</h2></div>
+    <div class="reveal d2"><p class="bd">Dezenas de parceiros, centenas de documentos, 9 órgãos regulatórios. A Musa centralizou tudo — e manteve 100% da operação em conformidade.</p></div>
+    <div class="mgrid">
+      <div class="reveal d2"><div class="mc mc-l"><div class="mv mv-dk">581</div><div class="ml">Documentações validadas</div><div class="ms">Licenças, alvarás e certidões homologadas</div></div></div>
+      <div class="reveal d3"><div class="mc mc-l"><div class="mv mv-dk">+49 mil</div><div class="ml">MTRs emitidos</div><div class="ms">Ao longo dos 12 meses de operação</div></div></div>
+      <div class="reveal d4"><div class="mc mc-l"><div class="mv mv-bl">91,8%</div><div class="ml">MTRs disponíveis</div><div class="ms">Dos últimos 90 dias no portal</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. VOLUME -->
+<section class="section s-lt" id="sec-3" data-label="Volume">
+  <div class="container">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>Volume de Coletas<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><h2 class="h2">Uma operação que não para.<br>54.248 coletas, em 12 meses.</h2></div>
+    <div class="reveal d2"><p class="bd">Com consistência, cobertura e um índice de sucesso que ninguém no mercado consegue sustentar nessa escala.</p></div>
+    <div class="mgrid">
+      <div class="reveal d2"><div class="mc mc-l"><div class="mv mv-dk">171</div><div class="ml">Média de coletas / dia</div><div class="ms">Ao longo dos 12 meses</div></div></div>
+      <div class="reveal d3"><div class="mc mc-l"><div class="mv mv-bl">91,0%</div><div class="ml">Taxa de sucesso</div><div class="ms">Coletas realizadas com êxito</div></div></div>
+      <div class="reveal d4"><div class="mc mc-l"><div class="mv mv-dk">66,40</div><div class="ml">Coletas por loja</div><div class="ms">Média no período</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. EVOLUÇÃO -->
+<section class="section s-lt" id="sec-4" data-label="Evolução">
+  <div class="container">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>Evolução Mês a Mês<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><h2 class="h2">Consistência ao longo<br>de 12 meses.</h2></div>
+    <div class="reveal d2"><p class="bd">Após o piloto, escalamos a operação para todas as unidades, mantendo estabilidade durante todo o período.</p></div>
+    <div class="reveal d3">
+      <div class="chart-outer">
+        <div class="chart-lbl">Volume gerenciado (índice relativo) · Abr/2025 – Mar/2026</div>
+        <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="none" style="display:block">
+          <path d="M0,128 L62,96 L124,65 L186,22 L248,32 L310,46 L372,28 L434,37 L496,18 L558,42 L620,68 L680,92 L680,140 L0,140 Z" fill="rgba(255,186,134,0.14)"/>
+          <path d="M0,128 L62,96 L124,65 L186,22 L248,32 L310,46 L372,28 L434,37 L496,18 L558,42 L620,68 L680,92" fill="none" stroke="#FFBA86" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <circle cx="0"   cy="128" r="4" fill="#FFBA86"/>
+          <circle cx="62"  cy="96"  r="4" fill="#FFBA86"/>
+          <circle cx="124" cy="65"  r="4" fill="#FFBA86"/>
+          <circle cx="186" cy="22"  r="4" fill="#FFBA86"/>
+          <circle cx="248" cy="32"  r="4" fill="#FFBA86"/>
+          <circle cx="310" cy="46"  r="4" fill="#FFBA86"/>
+          <circle cx="372" cy="28"  r="4" fill="#FFBA86"/>
+          <circle cx="434" cy="37"  r="4" fill="#FFBA86"/>
+          <circle cx="496" cy="18"  r="4" fill="#FFBA86"/>
+          <circle cx="558" cy="42"  r="4" fill="#FFBA86"/>
+          <circle cx="620" cy="68"  r="4" fill="#FFBA86"/>
+          <circle cx="680" cy="92"  r="4" fill="#FFBA86"/>
+        </svg>
+        <div class="chart-months"><span>Abr</span><span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span><span>Out</span><span>Nov</span><span>Dez</span><span>Jan</span><span>Fev</span><span>Mar</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PRESENÇA NACIONAL -->
+<section class="section s-dk" id="sec-5" data-label="Presença">
+  <div class="container">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>Presença Nacional<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><h1 class="h1">Onde a Zamp está,<br>a Musa está junto.</h1></div>
+    <div class="reveal d2"><p class="bd">Uma operação que cobre o Brasil de ponta a ponta com o mesmo padrão de gestão em todos os 20 estados.</p></div>
+    <div class="mgrid">
+      <div class="reveal d2"><div class="mc mc-d"><div class="mv mv-o">20</div><div class="ml">Estados</div><div class="ms">Cobertura nacional</div></div></div>
+      <div class="reveal d3"><div class="mc mc-d"><div class="mv mv-o">185</div><div class="ml">Municípios</div><div class="ms">Capilaridade real</div></div></div>
+      <div class="reveal d4"><div class="mc mc-d"><div class="mv mv-o">100%</div><div class="ml">Unidades cobertas</div><div class="ms">Mesmo padrão em todos os estados</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. ESTADOS -->
+<section class="section s-cr" id="sec-6" data-label="Estados">
+  <div class="container">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>Distribuição por Estado<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><h2 class="h2">Operações adaptadas<br>a cada região.</h2></div>
+    <div class="reveal d2"><p class="bd">Uma rede presente em grande parte do território nacional, com coletas em 20 estados.</p></div>
+    <div class="sgrid">
+      <div class="reveal d2"><div class="srow"><span class="sn">SP</span><span class="sv">48%<span class="su">das lojas</span></span></div></div>
+      <div class="reveal d2"><div class="srow"><span class="sn">RJ</span><span class="sv">13%<span class="su">das lojas</span></span></div></div>
+      <div class="reveal d3"><div class="srow"><span class="sn">MG</span><span class="sv">7%<span class="su">das lojas</span></span></div></div>
+      <div class="reveal d3"><div class="srow"><span class="sn">PR</span><span class="sv">7%<span class="su">das lojas</span></span></div></div>
+      <div class="reveal d4"><div class="srow"><span class="sn">RS</span><span class="sv">4%<span class="su">das lojas</span></span></div></div>
+      <div class="reveal d4"><div class="srow"><span class="sn">Demais estados</span><span class="sv">21%<span class="su">das lojas</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. < 1 MIN -->
+<section class="section s-dk" id="sec-7" data-label="&lt;1min">
+  <div class="container">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>O Número que Muda Tudo<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><div class="hero">&lt;&nbsp;1&nbsp;min</div></div>
+    <div class="reveal d2"><p class="bd" style="max-width:480px">É o tempo para acessar qualquer MTR da operação. Documentação centralizada, indexada, disponível — na hora em que você precisar.</p></div>
+    <div class="reveal d3">
+      <div class="cmpbox">
+        <div class="cmps"><div class="cv-g">&lt; 1 min</div><div class="cl">Operação Zamp</div></div>
+        <div class="cmpsep"></div>
+        <div class="cmps"><div class="cv-b">3–7 dias</div><div class="cl">Média do mercado</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. POTENCIAL ÓLEO -->
+<section class="section s-dk" id="sec-8" data-label="Potencial">
+  <div class="container">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>Potencial do Óleo Vegetal<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><h1 class="h1">Um ano de dados.<br>Agora é escalar.</h1></div>
+    <div class="reveal d2"><p class="bd">Com 12 meses de operação, mapeamos o padrão de cada loja. Sabemos onde está o potencial da rede.</p></div>
+    <div class="tgrid">
+      <div class="reveal d2"><div class="tc t-top"><div class="tl tl-o">Top · 8%</div><div class="tn" style="color:var(--o)">59 lojas</div><div class="ts">Volume 2,6× acima da média da rede</div></div></div>
+      <div class="reveal d3"><div class="tc t-mid"><div class="tl tl-g">Middle · 60%</div><div class="tn" style="color:#ccc">423 lojas</div><div class="ts">Referência da rede. Potencial de crescimento.</div></div></div>
+      <div class="reveal d4"><div class="tc t-bot"><div class="tl tl-d">Bottom · 32%</div><div class="tn" style="color:#555">225 lojas</div><div class="ts">70% abaixo da média. 31 sem coleta ativa.</div></div></div>
+    </div>
+    <div class="reveal d4"><p style="margin-top:22px;font-size:13px;color:#444;font-style:italic;font-family:'Playfair Display',Georgia,serif">Elevar o middle ao nível do top é o maior ganho disponível com a estrutura já montada.</p></div>
+  </div>
+</section>
+
+<!-- 10. IMPACTO -->
+<section class="section s-dk" id="sec-9" data-label="Impacto">
+  <div class="container">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>Valorização do Óleo Vegetal<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><h1 class="h1">Óleo coletado.<br>Um impacto que vai<br>além da coleta.</h1></div>
+    <div class="reveal d2"><p class="bd">100% do óleo vegetal com destinação certificada. Do resíduo ao recurso — cada coleta gerou água protegida, carbono evitado e energia limpa.</p></div>
+    <div class="igrid">
+      <div class="reveal d2"><div class="ic"><div class="iv">6.800</div><div class="il">Piscinas olímpicas</div><div class="is">Equiv. em água protegida de contaminação</div></div></div>
+      <div class="reveal d3"><div class="ic"><div class="iv">370 carros</div><div class="il">Carbono evitado</div><div class="is">Retirados das ruas por um ano completo</div></div></div>
+      <div class="reveal d4"><div class="ic"><div class="iv">45 voltas</div><div class="il">Biodiesel produzido</div><div class="is">Equiv. a um caminhão pesado ao redor da Terra</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. CTA -->
+<section class="section s-lt" id="sec-10" data-label="Contato">
+  <div class="container" id="cta">
+    <div class="reveal"><div class="ey"><div class="ey-dot"></div>Para a Sua Rede<div class="ey-line"></div></div></div>
+    <div class="reveal d1"><h2 class="h2">A sua rede tem<br>o mesmo desafio?</h2></div>
+    <div class="reveal d2"><p class="bd">Em 20 minutos de conversa, mapeamos a situação atual da sua operação — fornecedores ativos, gaps de rastreabilidade e o custo real da gestão fragmentada. Sem apresentação comercial. Só diagnóstico.</p></div>
+    <div class="reveal d3">
+      <div class="cta-card">
+        <div class="cta-name">Anderson Ferreira</div>
+        <div class="cta-role">Diretor Comercial · Musa</div>
+        <div class="cta-contact">
+          <a href="mailto:anderson.ferreira@musa.co">anderson.ferreira@musa.co</a><br>
+          <a href="tel:+5511964376555">+55 11 96437-6555</a>
+        </div>
+        <div class="cta-tagline">Nada se perde, tudo se transforma.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><span>© 2026 Musa Co · Gestão de Resíduos</span></footer>
 
 <script>
-const SL = [
-  { c:'s-dk', h:`
-    <div class="logos">
-      <div class="lm">Musa</div><div class="lsep">|</div><div class="lz">ZAMP</div>
-    </div>
-    <div class="pill">Relatório Anual · 2025–2026</div>
-    <div class="h1">Construímos juntos algo<br>que vai além da coleta.<br><em>Este relatório é a prova disso.</em></div>
-    <div class="bd">Um ano de gestão digitalizada. Três marcas. 804 lojas.<br>Resíduo virou dado, dado virou decisão, e decisão virou resultado.</div>
-  `},
-  { c:'s-dk', h:`
-    <div class="ey"><div class="ey-dot"></div>O Escopo da Operação<div class="ey-line"></div></div>
-    <div class="h1">Três marcas.<br>804 lojas.<br>Uma operação.</div>
-    <div class="blist">
-      <div class="brow"><div class="bn">Burger King</div><div><span class="bv">87%</span><span class="bu">das unidades</span></div></div>
-      <div class="brow"><div class="bn">Popeyes</div><div><span class="bv">11%</span><span class="bu">das unidades</span></div></div>
-      <div class="brow" style="opacity:0.5"><div class="bn">Starbucks</div><div><span class="bv">2%</span><span class="bu">das unidades</span></div></div>
-    </div>
-    <div class="tags">
-      <div class="tag">Resíduo Comum</div><div class="tag">Reciclável</div>
-      <div class="tag">Orgânicos</div><div class="tag">Óleo Vegetal</div><div class="tag">Papelão</div>
-    </div>
-  `},
-  { c:'s-lt', h:`
-    <div class="ey"><div class="ey-dot"></div>Conformidade e Rastreabilidade<div class="ey-line"></div></div>
-    <div class="h2">59 operadores.<br>Um único contrato.</div>
-    <div class="bd">Dezenas de parceiros, centenas de documentos, 9 órgãos regulatórios. A Musa centralizou tudo — e manteve 100% da operação em conformidade.</div>
-    <div class="mgrid">
-      <div class="mc mc-l"><div class="mv mv-dk">581</div><div class="ml">Documentações validadas</div><div class="ms">Licenças, alvarás e certidões homologadas</div></div>
-      <div class="mc mc-l"><div class="mv mv-dk">+49 mil</div><div class="ml">MTRs emitidos</div><div class="ms">Ao longo dos 12 meses de operação</div></div>
-      <div class="mc mc-l"><div class="mv mv-bl">91,8%</div><div class="ml">MTRs disponíveis</div><div class="ms">Dos últimos 90 dias no portal</div></div>
-    </div>
-  `},
-  { c:'s-lt', h:`
-    <div class="ey"><div class="ey-dot"></div>Volume de Coletas<div class="ey-line"></div></div>
-    <div class="h2">Uma operação que não para.<br>54.248 coletas, em 12 meses.</div>
-    <div class="bd">Com consistência, cobertura e um índice de sucesso que ninguém no mercado consegue sustentar nessa escala.</div>
-    <div class="mgrid">
-      <div class="mc mc-l"><div class="mv mv-dk">171</div><div class="ml">Média de coletas / dia</div><div class="ms">Ao longo dos 12 meses</div></div>
-      <div class="mc mc-l"><div class="mv mv-bl">91,0%</div><div class="ml">Taxa de sucesso</div><div class="ms">Coletas realizadas com êxito</div></div>
-      <div class="mc mc-l"><div class="mv mv-dk">66,40</div><div class="ml">Coletas por loja</div><div class="ms">Média no período</div></div>
-    </div>
-  `},
-  { c:'s-lt', h:`
-    <div class="ey"><div class="ey-dot"></div>Evolução Mês a Mês<div class="ey-line"></div></div>
-    <div class="h2">Consistência ao longo<br>de 12 meses.</div>
-    <div class="bd">Após o piloto, escalamos a operação para todas as unidades, mantendo estabilidade durante todo o período.</div>
-    <div class="chart-wrap">
-      <div class="chart-lbl">Volume gerenciado (índice relativo) · Abr/2025 – Mar/2026</div>
-      <svg width="100%" height="90" viewBox="0 0 660 90" preserveAspectRatio="none" style="display:block">
-        <path d="M0,82 L60,58 L120,38 L180,13 L240,20 L300,29 L360,16 L420,22 L480,10 L540,26 L600,43 L660,60 L660,90 L0,90 Z" fill="rgba(255,186,134,0.16)"/>
-        <path d="M0,82 L60,58 L120,38 L180,13 L240,20 L300,29 L360,16 L420,22 L480,10 L540,26 L600,43 L660,60" fill="none" stroke="#FFBA86" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-        <circle cx="0"   cy="82" r="3" fill="#FFBA86"/>
-        <circle cx="60"  cy="58" r="3" fill="#FFBA86"/>
-        <circle cx="120" cy="38" r="3" fill="#FFBA86"/>
-        <circle cx="180" cy="13" r="3" fill="#FFBA86"/>
-        <circle cx="240" cy="20" r="3" fill="#FFBA86"/>
-        <circle cx="300" cy="29" r="3" fill="#FFBA86"/>
-        <circle cx="360" cy="16" r="3" fill="#FFBA86"/>
-        <circle cx="420" cy="22" r="3" fill="#FFBA86"/>
-        <circle cx="480" cy="10" r="3" fill="#FFBA86"/>
-        <circle cx="540" cy="26" r="3" fill="#FFBA86"/>
-        <circle cx="600" cy="43" r="3" fill="#FFBA86"/>
-        <circle cx="660" cy="60" r="3" fill="#FFBA86"/>
-      </svg>
-      <div class="chart-months">
-        <span>Abr</span><span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span>
-        <span>Out</span><span>Nov</span><span>Dez</span><span>Jan</span><span>Fev</span><span>Mar</span>
-      </div>
-    </div>
-  `},
-  { c:'s-dk', h:`
-    <div class="ey"><div class="ey-dot"></div>Presença Nacional<div class="ey-line"></div></div>
-    <div class="h1">Onde a Zamp está,<br>a Musa está junto.</div>
-    <div class="bd">Uma operação que cobre o Brasil de ponta a ponta com o mesmo padrão de gestão em todos os 20 estados.</div>
-    <div class="mgrid">
-      <div class="mc mc-d"><div class="mv mv-o">20</div><div class="ml">Estados</div><div class="ms">Cobertura nacional</div></div>
-      <div class="mc mc-d"><div class="mv mv-o">185</div><div class="ml">Municípios</div><div class="ms">Capilaridade real</div></div>
-      <div class="mc mc-d"><div class="mv mv-o">100%</div><div class="ml">Unidades cobertas</div><div class="ms">Mesmo padrão em todos os estados</div></div>
-    </div>
-  `},
-  { c:'s-cr', h:`
-    <div class="ey"><div class="ey-dot"></div>Distribuição por Estado<div class="ey-line"></div></div>
-    <div class="h2">Operações adaptadas<br>a cada região.</div>
-    <div class="bd">Uma rede presente em grande parte do território nacional, com coletas em 20 estados.</div>
-    <div class="sgrid">
-      <div class="srow"><span class="sn">SP</span><span class="sv">48%<span class="su">das lojas</span></span></div>
-      <div class="srow"><span class="sn">RJ</span><span class="sv">13%<span class="su">das lojas</span></span></div>
-      <div class="srow"><span class="sn">MG</span><span class="sv">7%<span class="su">das lojas</span></span></div>
-      <div class="srow"><span class="sn">PR</span><span class="sv">7%<span class="su">das lojas</span></span></div>
-      <div class="srow"><span class="sn">RS</span><span class="sv">4%<span class="su">das lojas</span></span></div>
-      <div class="srow"><span class="sn">Demais estados</span><span class="sv">21%<span class="su">das lojas</span></span></div>
-    </div>
-  `},
-  { c:'s-dk', h:`
-    <div class="ey"><div class="ey-dot"></div>O Número que Muda Tudo<div class="ey-line"></div></div>
-    <div class="hero">&lt;&nbsp;1&nbsp;min</div>
-    <div class="bd" style="max-width:55%;margin-bottom:clamp(10px,1.8%,20px)">É o tempo para acessar qualquer MTR da operação. Documentação centralizada, indexada, disponível — na hora em que você precisar.</div>
-    <div class="cmpbox">
-      <div class="cmps"><div class="cv-g">&lt; 1 min</div><div class="cl">Operação Zamp</div></div>
-      <div class="cmpsep"></div>
-      <div class="cmps"><div class="cv-b">3–7 dias</div><div class="cl">Média do mercado</div></div>
-    </div>
-  `},
-  { c:'s-dk', h:`
-    <div class="ey"><div class="ey-dot"></div>Potencial do Óleo Vegetal<div class="ey-line"></div></div>
-    <div class="h1">Um ano de dados.<br>Agora é escalar.</div>
-    <div class="bd">Com 12 meses de operação, mapeamos o padrão de cada loja. Sabemos onde está o potencial da rede.</div>
-    <div class="tgrid">
-      <div class="tc t-top">
-        <div class="tl tl-o">Top · 8%</div>
-        <div class="tn" style="color:var(--o)">59 lojas</div>
-        <div class="ts">Volume 2,6× acima da média da rede</div>
-      </div>
-      <div class="tc t-mid">
-        <div class="tl tl-g">Middle · 60%</div>
-        <div class="tn" style="color:#ccc">423 lojas</div>
-        <div class="ts">Referência da rede. Potencial de crescimento.</div>
-      </div>
-      <div class="tc t-bot">
-        <div class="tl tl-d">Bottom · 32%</div>
-        <div class="tn" style="color:#555">225 lojas</div>
-        <div class="ts">70% abaixo da média. 31 sem coleta ativa.</div>
-      </div>
-    </div>
-    <div style="margin-top:clamp(8px,1.3%,14px);font-size:clamp(9px,1vw,11px);color:#484848;font-style:italic;font-family:'Playfair Display',Georgia,serif">Elevar o middle ao nível do top é o maior ganho disponível com a estrutura já montada.</div>
-  `},
-  { c:'s-dk', h:`
-    <div class="ey"><div class="ey-dot"></div>Valorização do Óleo Vegetal<div class="ey-line"></div></div>
-    <div class="h1">Óleo coletado.<br>Um impacto que vai<br>além da coleta.</div>
-    <div class="bd">100% do óleo vegetal com destinação certificada — cada coleta gerou água protegida, carbono evitado e energia limpa.</div>
-    <div class="igrid">
-      <div class="ic"><div class="iv">6.800</div><div class="il">Piscinas olímpicas</div><div class="is">Equiv. em água protegida de contaminação</div></div>
-      <div class="ic"><div class="iv">370 carros</div><div class="il">Carbono evitado</div><div class="is">Retirados das ruas por um ano completo</div></div>
-      <div class="ic"><div class="iv">45 voltas</div><div class="il">Biodiesel produzido</div><div class="is">Equiv. a um caminhão pesado ao redor da Terra</div></div>
-    </div>
-  `},
-  { c:'s-lt', h:`
-    <div class="ey"><div class="ey-dot"></div>Para a Sua Rede<div class="ey-line"></div></div>
-    <div class="h2">A sua rede tem<br>o mesmo desafio?</div>
-    <div class="bd">Em 20 minutos de conversa, mapeamos a situação atual da sua operação — fornecedores ativos, gaps de rastreabilidade e o custo real da gestão fragmentada. Sem apresentação comercial. Só diagnóstico.</div>
-    <div class="cta-card">
-      <div class="cta-name">Anderson Ferreira</div>
-      <div class="cta-role">Diretor Comercial · Musa</div>
-      <div class="cta-contact">
-        <a href="mailto:anderson.ferreira@musa.co">anderson.ferreira@musa.co</a><br>
-        <a href="tel:+5511964376555">+55 11 96437-6555</a>
-      </div>
-      <div class="cta-tagline">Nada se perde, tudo se transforma.</div>
-    </div>
-  `}
-];
+const sections = Array.from(document.querySelectorAll('.section'));
+const sideNav  = document.getElementById('sideNav');
+const floatCta = document.getElementById('floatCta');
 
-let cur = 0;
-const N = SL.length;
+sections.forEach((sec, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'side-dot' + (i === 0 ? ' active' : '');
+  btn.title = sec.dataset.label || '';
+  btn.onclick = () => sec.scrollIntoView({ behavior: 'smooth' });
+  sideNav.appendChild(btn);
+});
 
-function build() {
-  const sc = document.getElementById('sc');
-  const dr = document.getElementById('dr');
-  SL.forEach((s, i) => {
-    const el = document.createElement('div');
-    el.className = 'slide ' + s.c + (i === 0 ? ' on' : '');
-    el.id = 's' + i;
-    el.innerHTML = s.h + `<div class="cnt">${i + 1} / ${N}</div>`;
-    sc.appendChild(el);
-    const d = document.createElement('div');
-    d.className = 'dot' + (i === 0 ? ' on' : '');
-    d.onclick = () => go(i);
-    dr.appendChild(d);
+const dots = Array.from(sideNav.querySelectorAll('.side-dot'));
+
+const secObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const idx = sections.indexOf(entry.target);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      floatCta.classList.toggle('show', idx > 0);
+    }
   });
-}
+}, { threshold: 0.4 });
 
-function go(n) {
-  if (n < 0 || n >= N) return;
-  document.getElementById('s' + cur).classList.remove('on');
-  document.querySelectorAll('.dot')[cur].classList.remove('on');
-  cur = n;
-  document.getElementById('s' + cur).classList.add('on');
-  document.querySelectorAll('.dot')[cur].classList.add('on');
-  document.getElementById('pvb').disabled = cur === 0;
-  document.getElementById('nxb').disabled = cur === N - 1;
-  document.getElementById('pb').style.width = ((cur + 1) / N * 100) + '%';
-}
+sections.forEach(s => secObs.observe(s));
 
-build();
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(cur + 1);
-  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   go(cur - 1);
-});
-
-let ts = 0;
-document.addEventListener('touchstart', e => { ts = e.touches[0].clientX; });
-document.addEventListener('touchend',   e => {
-  const diff = ts - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 50) go(diff > 0 ? cur + 1 : cur - 1);
-});
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 </script>
 </body>
 </html>

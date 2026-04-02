@@ -11,7 +11,7 @@
 <meta name="twitter:card"       content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -20,9 +20,25 @@
   --lt:#ffffff;--cr:#f5f2ed;
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Inter',-apple-system,Arial,sans-serif;
+  --zamp:'Bebas Neue',Impact,sans-serif;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
+
+/* PERSISTENT MUSA HEADER */
+.musa-header{
+  position:fixed;top:0;left:0;right:0;
+  padding:14px 28px;
+  display:flex;align-items:center;gap:8px;
+  z-index:200;
+  opacity:0;transform:translateY(-6px);
+  transition:opacity .35s ease,transform .35s ease;
+  pointer-events:none;
+  background:linear-gradient(to bottom,rgba(28,28,28,.85) 0%,rgba(28,28,28,0) 100%);
+}
+.musa-header.show{opacity:1;transform:translateY(0);pointer-events:all}
+.musa-header svg{flex-shrink:0}
+.musa-header-text{font-family:var(--sans);font-size:13px;font-weight:500;color:rgba(255,255,255,.7);letter-spacing:.3px}
 
 /* SECTIONS */
 .section{width:100%;min-height:100vh;display:flex;align-items:center;padding:88px 0}
@@ -50,8 +66,7 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
   z-index:100;
   opacity:0;transform:translateY(10px);
   transition:opacity .4s ease,transform .4s ease,background .15s;
-  pointer-events:none;
-  white-space:nowrap;
+  pointer-events:none;white-space:nowrap;
 }
 .float-cta.show{opacity:1;transform:translateY(0);pointer-events:all}
 .float-cta:hover{background:#ffc99e}
@@ -72,11 +87,13 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
 .bd{font-size:clamp(14px,1.4vw,16px);line-height:1.75;max-width:520px}
 .s-dk .bd{color:#999}.s-lt .bd,.s-cr .bd{color:#606060}
 
-/* COVER */
-.logos{display:flex;align-items:center;gap:14px;margin-bottom:52px}
-.lm{font-size:20px;font-weight:600;color:#fff}
-.lsep{color:#444;font-size:22px}
-.lz{font-size:12px;font-weight:700;letter-spacing:2.5px;color:#fff;border:1.5px solid rgba(255,255,255,.25);padding:4px 13px;border-radius:4px;text-transform:uppercase}
+/* COVER LOGOS */
+.logos{display:flex;align-items:center;gap:16px;margin-bottom:52px}
+.logo-musa{display:flex;align-items:center}
+.logo-sep{color:rgba(255,255,255,.22);font-size:24px;font-weight:300;margin:0 16px}
+.logo-zamp-img{height:32px;width:auto;border-radius:4px}
+.musa-header svg{flex-shrink:0}
+
 .pill{display:inline-flex;border:1px solid rgba(255,186,134,.55);color:var(--o);font-size:10px;font-weight:600;letter-spacing:2.5px;padding:5px 16px;border-radius:20px;margin-bottom:32px;text-transform:uppercase}
 
 /* METRIC GRID */
@@ -100,7 +117,7 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
 .tag{border:1px solid #383838;color:#888;font-size:11px;padding:5px 14px;border-radius:20px}
 
-/* HERO NUMBER */
+/* HERO */
 .hero{font-family:var(--serif);font-size:clamp(80px,16vw,160px);font-weight:700;color:var(--o);line-height:1;margin-bottom:22px}
 
 /* COMPARE */
@@ -169,10 +186,24 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
   .cta-card{min-width:unset;width:100%}
   .hero{font-size:clamp(64px,20vw,100px)}
   .footer{padding:24px}
+  .musa-header{padding:10px 16px}
 }
 </style>
 </head>
 <body>
+
+<!-- PERSISTENT MUSA HEADER (aparece após cover) -->
+<header class="musa-header" id="musaHeader">
+  <svg width="72" height="20" viewBox="0 0 1386 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M619.536 222.823L538.313 58.6137H490.43V316.574H516.289V72.4741L593.094 231.131H646.067L722.773 72.4741V316.574H748.632V58.6137H700.749L619.525 222.823H619.536Z" fill="rgba(255,255,255,0.65)"/>
+    <path d="M941.869 215.651C941.869 239.395 935.589 258.4 923.04 272.646C910.491 286.903 893.556 294.01 872.281 294.01C855.787 294.01 843.117 288.732 834.247 278.177C825.367 267.622 820.938 252.451 820.938 232.663V115.896H795.839V237.411C795.839 262.488 801.668 282.607 813.336 297.778C824.992 312.95 842.863 320.541 866.959 320.541C886.736 320.541 907.968 314.492 921.211 303.485C934.454 292.478 937.914 286.683 941.869 277.439V316.574H967.343V115.907H941.869V215.651Z" fill="rgba(255,255,255,0.65)"/>
+    <path d="M1149.23 222.514C1137.7 214.989 1123.05 209.656 1105.31 206.483L1077.94 201.338C1062.22 198.44 1051.25 194.672 1045.05 190.067C1038.83 185.45 1035.73 178.531 1035.73 169.287C1035.73 158.732 1040.03 150.557 1048.65 144.739C1057.27 138.944 1068.67 136.035 1082.87 136.035C1100.1 136.035 1113.54 140.002 1123.19 147.913C1132.8 155.823 1137.88 166.643 1138.4 180.371H1164.63C1163.62 159.008 1156.21 142.238 1142.39 130.097C1128.57 117.955 1109.24 111.895 1084.39 111.895C1062.33 111.895 1044.46 116.842 1030.77 126.736C1017.07 136.63 1010.24 150.953 1010.24 169.684C1010.24 187.367 1015.31 200.027 1025.46 207.684C1035.59 215.342 1050.17 221.005 1069.19 224.707L1098.85 230.249C1114.82 233.411 1125.85 237.377 1131.92 242.126C1138.02 246.875 1141.05 253.871 1141.05 263.104C1141.05 273.923 1136.74 282.176 1128.12 287.85C1119.51 293.524 1107.72 296.355 1092.75 296.355C1075.26 296.355 1060.93 292.345 1049.77 284.28C1038.61 276.237 1032.92 265.351 1032.66 251.623H1006.8C1007.31 272.733 1015.23 289.491 1030.58 301.897C1045.91 314.304 1066.14 320.496 1091.23 320.496C1113.8 320.496 1131.99 315.548 1145.8 305.654C1159.62 295.761 1166.54 281.437 1166.54 262.707C1166.54 243.977 1160.77 230.05 1149.24 222.525L1149.23 222.514Z" fill="rgba(255,255,255,0.65)"/>
+    <path d="M1378.37 290.009C1374.56 290.009 1371.59 289.414 1370.06 287.563C1368.55 285.712 1368.09 282.098 1368.09 277.35V189.879C1368.09 137.886 1339.95 111.895 1283.67 111.895C1259.57 111.895 1240.13 118.429 1225.3 131.496C1210.47 144.552 1202.53 162.963 1201.52 186.717H1227.38C1230.67 152.683 1250.06 135.661 1285.56 135.661C1304.57 135.661 1318.89 140.354 1328.53 149.719C1338.16 159.096 1342.99 171.689 1342.99 187.522C1342.99 193.846 1337.34 197.878 1326.06 199.597C1314.77 201.316 1297.47 202.44 1274.16 202.958C1251.34 203.486 1233.09 208.301 1219.39 217.413C1205.69 226.525 1198.86 240.44 1198.86 259.181C1198.86 277.923 1205.25 292.819 1218.06 303.914C1230.86 314.998 1247.41 320.529 1267.68 320.529C1285.42 320.529 1303.47 317.058 1317.31 308.85C1331.5 300.421 1341.56 285.999 1343.36 277.394V292.092C1343.36 305.61 1354.34 316.584 1367.85 316.584H1385.96V290.075H1378.35V290.031L1378.37 290.009ZM1343 244.098C1343 254.389 1339.52 263.5 1332.54 271.411C1325.56 279.322 1316.51 285.404 1305.35 289.613C1294.19 293.843 1282.79 296.091 1271.13 296.344C1256.93 296.344 1245.52 293.182 1236.91 286.836C1228.29 280.512 1223.98 271.4 1223.98 259.523C1223.98 239.999 1238.19 228.915 1266.57 226.271C1266.57 226.271 1305.6 223.638 1309.91 223.109C1309.91 223.109 1326.2 222.117 1338.76 220.498C1341 220.2 1343 221.963 1343 224.233V244.087V244.098Z" fill="rgba(255,255,255,0.65)"/>
+    <path d="M81.0801 69.94C51.2328 100.14 32.8 141.644 32.8 187.467C32.8 233.29 51.2328 274.794 81.0801 304.994C33.6925 287.002 0 241.168 0 187.467C0 133.766 33.6925 87.9321 81.0801 69.94Z" fill="rgba(255,255,255,0.65)"/>
+    <path d="M361.486 148.012C350.986 106.872 324.895 69.6977 285.617 46.0976C246.349 22.4974 201.265 16.9224 160.025 26.9486C199.843 -4.41911 256.486 -9.69663 302.518 17.9691C348.551 45.6238 370.487 98.1016 361.486 148.001V148.012Z" fill="rgba(255,255,255,0.65)"/>
+    <path d="M361.486 231.131C350.986 272.272 324.895 309.446 285.617 333.046C246.349 356.646 201.265 362.221 160.025 352.195C199.843 383.563 256.486 388.84 302.518 361.175C348.551 333.52 370.487 281.042 361.486 231.142V231.131Z" fill="rgba(255,255,255,0.65)"/>
+  </svg>
+</header>
 
 <a href="#cta" class="float-cta" id="floatCta">Falar com Anderson →</a>
 <nav class="side-nav" id="sideNav"></nav>
@@ -180,7 +211,23 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
 <!-- 1. COVER -->
 <section class="section s-dk" id="sec-0" data-label="Início">
   <div class="container">
-    <div class="reveal"><div class="logos"><div class="lm">Musa</div><div class="lsep">|</div><div class="lz">ZAMP</div></div></div>
+    <div class="reveal">
+      <div class="logos">
+        <div class="logo-musa">
+          <svg width="110" height="30" viewBox="0 0 1386 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M619.536 222.823L538.313 58.6137H490.43V316.574H516.289V72.4741L593.094 231.131H646.067L722.773 72.4741V316.574H748.632V58.6137H700.749L619.525 222.823H619.536Z" fill="white"/>
+            <path d="M941.869 215.651C941.869 239.395 935.589 258.4 923.04 272.646C910.491 286.903 893.556 294.01 872.281 294.01C855.787 294.01 843.117 288.732 834.247 278.177C825.367 267.622 820.938 252.451 820.938 232.663V115.896H795.839V237.411C795.839 262.488 801.668 282.607 813.336 297.778C824.992 312.95 842.863 320.541 866.959 320.541C886.736 320.541 907.968 314.492 921.211 303.485C934.454 292.478 937.914 286.683 941.869 277.439V316.574H967.343V115.907H941.869V215.651Z" fill="white"/>
+            <path d="M1149.23 222.514C1137.7 214.989 1123.05 209.656 1105.31 206.483L1077.94 201.338C1062.22 198.44 1051.25 194.672 1045.05 190.067C1038.83 185.45 1035.73 178.531 1035.73 169.287C1035.73 158.732 1040.03 150.557 1048.65 144.739C1057.27 138.944 1068.67 136.035 1082.87 136.035C1100.1 136.035 1113.54 140.002 1123.19 147.913C1132.8 155.823 1137.88 166.643 1138.4 180.371H1164.63C1163.62 159.008 1156.21 142.238 1142.39 130.097C1128.57 117.955 1109.24 111.895 1084.39 111.895C1062.33 111.895 1044.46 116.842 1030.77 126.736C1017.07 136.63 1010.24 150.953 1010.24 169.684C1010.24 187.367 1015.31 200.027 1025.46 207.684C1035.59 215.342 1050.17 221.005 1069.19 224.707L1098.85 230.249C1114.82 233.411 1125.85 237.377 1131.92 242.126C1138.02 246.875 1141.05 253.871 1141.05 263.104C1141.05 273.923 1136.74 282.176 1128.12 287.85C1119.51 293.524 1107.72 296.355 1092.75 296.355C1075.26 296.355 1060.93 292.345 1049.77 284.28C1038.61 276.237 1032.92 265.351 1032.66 251.623H1006.8C1007.31 272.733 1015.23 289.491 1030.58 301.897C1045.91 314.304 1066.14 320.496 1091.23 320.496C1113.8 320.496 1131.99 315.548 1145.8 305.654C1159.62 295.761 1166.54 281.437 1166.54 262.707C1166.54 243.977 1160.77 230.05 1149.24 222.525L1149.23 222.514Z" fill="white"/>
+            <path d="M1378.37 290.009C1374.56 290.009 1371.59 289.414 1370.06 287.563C1368.55 285.712 1368.09 282.098 1368.09 277.35V189.879C1368.09 137.886 1339.95 111.895 1283.67 111.895C1259.57 111.895 1240.13 118.429 1225.3 131.496C1210.47 144.552 1202.53 162.963 1201.52 186.717H1227.38C1230.67 152.683 1250.06 135.661 1285.56 135.661C1304.57 135.661 1318.89 140.354 1328.53 149.719C1338.16 159.096 1342.99 171.689 1342.99 187.522C1342.99 193.846 1337.34 197.878 1326.06 199.597C1314.77 201.316 1297.47 202.44 1274.16 202.958C1251.34 203.486 1233.09 208.301 1219.39 217.413C1205.69 226.525 1198.86 240.44 1198.86 259.181C1198.86 277.923 1205.25 292.819 1218.06 303.914C1230.86 314.998 1247.41 320.529 1267.68 320.529C1285.42 320.529 1303.47 317.058 1317.31 308.85C1331.5 300.421 1341.56 285.999 1343.36 277.394V292.092C1343.36 305.61 1354.34 316.584 1367.85 316.584H1385.96V290.075H1378.35V290.031L1378.37 290.009ZM1343 244.098C1343 254.389 1339.52 263.5 1332.54 271.411C1325.56 279.322 1316.51 285.404 1305.35 289.613C1294.19 293.843 1282.79 296.091 1271.13 296.344C1256.93 296.344 1245.52 293.182 1236.91 286.836C1228.29 280.512 1223.98 271.4 1223.98 259.523C1223.98 239.999 1238.19 228.915 1266.57 226.271C1266.57 226.271 1305.6 223.638 1309.91 223.109C1309.91 223.109 1326.2 222.117 1338.76 220.498C1341 220.2 1343 221.963 1343 224.233V244.087V244.098Z" fill="white"/>
+            <path d="M81.0801 69.94C51.2328 100.14 32.8 141.644 32.8 187.467C32.8 233.29 51.2328 274.794 81.0801 304.994C33.6925 287.002 0 241.168 0 187.467C0 133.766 33.6925 87.9321 81.0801 69.94Z" fill="white"/>
+            <path d="M361.486 148.012C350.986 106.872 324.895 69.6977 285.617 46.0976C246.349 22.4974 201.265 16.9224 160.025 26.9486C199.843 -4.41911 256.486 -9.69663 302.518 17.9691C348.551 45.6238 370.487 98.1016 361.486 148.001V148.012Z" fill="white"/>
+            <path d="M361.486 231.131C350.986 272.272 324.895 309.446 285.617 333.046C246.349 356.646 201.265 362.221 160.025 352.195C199.843 383.563 256.486 388.84 302.518 361.175C348.551 333.52 370.487 281.042 361.486 231.142V231.131Z" fill="white"/>
+          </svg>
+        </div>
+        <span class="logo-sep">|</span>
+        <img src="data:image/png;base64,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" alt="Zamp" class="logo-zamp-img">
+      </div>
+    </div>
     <div class="reveal d1"><div class="pill">Relatório Anual · 2025–2026</div></div>
     <div class="reveal d2"><h1 class="h1">Construímos juntos algo<br>que vai além da coleta.<br><em>Este relatório é a prova disso.</em></h1></div>
     <div class="reveal d3"><p class="bd">Um ano de gestão digitalizada. Três marcas. 804 lojas.<br>Resíduo virou dado, dado virou decisão, e decisão virou resultado.</p></div>
@@ -241,18 +288,12 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
         <svg width="100%" height="140" viewBox="0 0 680 140" preserveAspectRatio="none" style="display:block">
           <path d="M0,128 L62,96 L124,65 L186,22 L248,32 L310,46 L372,28 L434,37 L496,18 L558,42 L620,68 L680,92 L680,140 L0,140 Z" fill="rgba(255,186,134,0.14)"/>
           <path d="M0,128 L62,96 L124,65 L186,22 L248,32 L310,46 L372,28 L434,37 L496,18 L558,42 L620,68 L680,92" fill="none" stroke="#FFBA86" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-          <circle cx="0"   cy="128" r="4" fill="#FFBA86"/>
-          <circle cx="62"  cy="96"  r="4" fill="#FFBA86"/>
-          <circle cx="124" cy="65"  r="4" fill="#FFBA86"/>
-          <circle cx="186" cy="22"  r="4" fill="#FFBA86"/>
-          <circle cx="248" cy="32"  r="4" fill="#FFBA86"/>
-          <circle cx="310" cy="46"  r="4" fill="#FFBA86"/>
-          <circle cx="372" cy="28"  r="4" fill="#FFBA86"/>
-          <circle cx="434" cy="37"  r="4" fill="#FFBA86"/>
-          <circle cx="496" cy="18"  r="4" fill="#FFBA86"/>
-          <circle cx="558" cy="42"  r="4" fill="#FFBA86"/>
-          <circle cx="620" cy="68"  r="4" fill="#FFBA86"/>
-          <circle cx="680" cy="92"  r="4" fill="#FFBA86"/>
+          <circle cx="0"   cy="128" r="4" fill="#FFBA86"/><circle cx="62"  cy="96"  r="4" fill="#FFBA86"/>
+          <circle cx="124" cy="65"  r="4" fill="#FFBA86"/><circle cx="186" cy="22"  r="4" fill="#FFBA86"/>
+          <circle cx="248" cy="32"  r="4" fill="#FFBA86"/><circle cx="310" cy="46"  r="4" fill="#FFBA86"/>
+          <circle cx="372" cy="28"  r="4" fill="#FFBA86"/><circle cx="434" cy="37"  r="4" fill="#FFBA86"/>
+          <circle cx="496" cy="18"  r="4" fill="#FFBA86"/><circle cx="558" cy="42"  r="4" fill="#FFBA86"/>
+          <circle cx="620" cy="68"  r="4" fill="#FFBA86"/><circle cx="680" cy="92"  r="4" fill="#FFBA86"/>
         </svg>
         <div class="chart-months"><span>Abr</span><span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span><span>Out</span><span>Nov</span><span>Dez</span><span>Jan</span><span>Fev</span><span>Mar</span></div>
       </div>
@@ -260,7 +301,7 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
   </div>
 </section>
 
-<!-- 6. PRESENÇA NACIONAL -->
+<!-- 6. PRESENÇA -->
 <section class="section s-dk" id="sec-5" data-label="Presença">
   <div class="container">
     <div class="reveal"><div class="ey"><div class="ey-dot"></div>Presença Nacional<div class="ey-line"></div></div></div>
@@ -307,7 +348,7 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
   </div>
 </section>
 
-<!-- 9. POTENCIAL ÓLEO -->
+<!-- 9. POTENCIAL -->
 <section class="section s-dk" id="sec-8" data-label="Potencial">
   <div class="container">
     <div class="reveal"><div class="ey"><div class="ey-dot"></div>Potencial do Óleo Vegetal<div class="ey-line"></div></div></div>
@@ -359,9 +400,10 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
 <footer class="footer"><span>© 2026 Musa Co · Gestão de Resíduos</span></footer>
 
 <script>
-const sections = Array.from(document.querySelectorAll('.section'));
-const sideNav  = document.getElementById('sideNav');
-const floatCta = document.getElementById('floatCta');
+const sections  = Array.from(document.querySelectorAll('.section'));
+const sideNav   = document.getElementById('sideNav');
+const floatCta  = document.getElementById('floatCta');
+const musaHeader= document.getElementById('musaHeader');
 
 sections.forEach((sec, i) => {
   const btn = document.createElement('button');
@@ -378,7 +420,9 @@ const secObs = new IntersectionObserver(entries => {
     if (entry.isIntersecting) {
       const idx = sections.indexOf(entry.target);
       dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-      floatCta.classList.toggle('show', idx > 0);
+      const pastCover = idx > 0;
+      floatCta.classList.toggle('show', pastCover);
+      musaHeader.classList.toggle('show', pastCover);
     }
   });
 }, { threshold: 0.4 });
@@ -395,6 +439,17 @@ const revObs = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+let ts = 0;
+document.addEventListener('touchstart', e => { ts = e.touches[0].clientX; });
+document.addEventListener('touchend', e => {
+  const diff = ts - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 60) {
+    const target = diff > 0
+      ? document.getElementById('sec-' + Math.min(sections.length - 1, parseInt(document.querySelector('.side-dot.active')?.title?.replace(/\D/g,'') ?? 0) + 1))
+      : null;
+  }
+});
 </script>
 </body>
 </html>

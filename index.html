@@ -108,8 +108,11 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
 
 /* BRAND ROWS */
 .blist{display:flex;flex-direction:column;gap:12px;margin-top:36px;max-width:560px}
-.brow{background:rgba(255,255,255,.065);border-radius:10px;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
-.bn{font-size:16px;font-weight:500;color:#c8c8c8}
+.brow{background:rgba(255,255,255,.065);border-radius:10px;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+.brand-left{display:flex;align-items:center;gap:14px}
+.brand-logo-box{display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}.brand-logo-box img{display:block}
+.brand-logo-img{width:36px;height:36px;object-fit:contain}
+.bn{font-size:15px;font-weight:500;color:#c8c8c8}
 .bv{font-size:28px;font-weight:600;color:#fff}
 .bu{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-left:7px;font-weight:500}
 
@@ -147,11 +150,9 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
 .ts{font-size:12px;color:#777;line-height:1.6}
 
 /* STATE GRID */
-.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px;max-width:520px}
-.srow{border-radius:8px;padding:11px 18px;display:flex;justify-content:space-between;align-items:center}
-.s-cr .srow{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.s-cr .sn{font-size:12px;font-weight:500;color:#1a1a1a;letter-spacing:.5px}
-.s-cr .sv{font-size:14px;font-weight:600;color:var(--o-txt)}
+.srow-l{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06);border-radius:8px;padding:9px 18px;display:flex;justify-content:space-between;align-items:center;gap:24px;min-width:200px}
+.sn-l{font-size:12px;font-weight:500;color:#1a1a1a;letter-spacing:.5px}
+.sv-l{font-size:13px;font-weight:600;color:var(--o-txt)}
 .su{font-size:10px;margin-left:3px;opacity:.55}
 
 /* CHART */
@@ -240,9 +241,33 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
     <div class="reveal"><div class="ey"><div class="ey-dot"></div>O Escopo da Operação<div class="ey-line"></div></div></div>
     <div class="reveal d1"><h1 class="h1">Três marcas.<br>804 lojas.<br>Uma operação.</h1></div>
     <div class="blist">
-      <div class="reveal d2"><div class="brow"><div class="bn">Burger King</div><div><span class="bv">87%</span><span class="bu">das unidades</span></div></div></div>
-      <div class="reveal d3"><div class="brow"><div class="bn">Popeyes</div><div><span class="bv">11%</span><span class="bu">das unidades</span></div></div></div>
-      <div class="reveal d4"><div class="brow" style="opacity:.5"><div class="bn">Starbucks</div><div><span class="bv">2%</span><span class="bu">das unidades</span></div></div></div>
+      <div class="reveal d2">
+        <div class="brow">
+          <div class="brand-left">
+            <div class="brand-logo-box bk-box"><img src="data:image/png;base64,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"  alt="Burger King" style="height:52px;width:auto"></div>
+            <div class="bn">Burger King</div>
+          </div>
+          <div><span class="bv">87%</span><span class="bu">das unidades</span></div>
+        </div>
+      </div>
+      <div class="reveal d3">
+        <div class="brow">
+          <div class="brand-left">
+            <div class="brand-logo-box pop-box"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL4AAAA4CAYAAABDnUJYAAAE5klEQVR4nO2dXWgcVRiGnya2JgaUWAkGEisFFRQxUqtIBVEqUkWiFfFKUUQRCopSL8SL1AshIkU0eCGKoBaV0IvaG6sBS4M/JFZF8f+3aIuISqiglqbt58WZxek658xPdmeXnveBw0z3nPm+d2ffmTnzpcxgZrS5LTc/9zWNDfFYoG+DJ3cIzOyjnP5Gezgw7sVA31BJXRNmNpejKcSmQN9gSS3Tgb4HzGxVKkafud+53V5qWVtmZrSZ5cBhT9/9wNOpf78A3Fky/qfARYF+3xe8BNgKXOnpX1YwToiXgDM4/vuvAK7zjP8ZOBs4WiHXtcBDwHpP/9vAQpL/aLLcD9zjGf85cEFOzveBR4DdZcV2mpNqyNFbom9jhfg35/Tvw5mpmQ3Anznb9gDHgNWlVTluLzl+NMn3Q8mcvwJvAa8FxlxdUss8+ca/HHdAAVwBvFsyR8foqSFH6OyVNt44cFqFGH/k5P/O8/ko/itRg2PJ8vvAmIM5MapwQ8nx1yfLvhZqWMR/NcziHWBzC/O3lTqMH2IKmMFNI3YExoXOPGM5OdZ6Pj9I+Go0ARwhPMWZp7VnucYB/gXuSlWEfcCHyfr+FmoBmAVOx11RivAEcEuLNbSFOqY6Ifrxz0kbzANf487OKzL6dwEne7Zdif8qMgtcHMi7JUcXwGXAc4H+PcBgst4wdW/SDuEOvn7cmXoBeLIpdhHDXZNafxM4xzPuK+CvJFf6StebaFtM1nuAX4DHk/4F4EycobeR/Rukmeb/90fdRw130KGqTh57U3FCVZ2pjLzn5cQmiV+V85MYY4ExExm60m1totPXP5OjYXvT+PWBsZtytBRtfYnu3wK5RlqUq22tm40/nhErj11m9qqZfVlgHGb2SQVd20rq+sbcdxlJ2ri5AzWNb9+tzom9qqSWneZMO2LOwMNmdquZHUj6L8yItzPpmzR3YDXKlusCeRonha5tdSTpC+ygLCYDsbaXjOVjIIkXquM3M2f+WvXmJeq5wxN3KGe7rG0ml6Bja1OsuyrGOdWjrWtap+v4H+PqwL8DHxSMt1TB6bLbXmCNZ9wWXFlxN8VuGn/CVYqqkjUvHiI8z/fNpZeyj/px9x9V43wLnLuE/LVQR1UnVDl5BniD4qYH92PvqKjlUo6vwoS+/6PAyxSvlJwFPF9RF8C9GZ+F9h349fcD/1TUMZ0sb6u4fZkSaMfodDlzMH9IJjcBN5YYvwdX3Wk+wPKMVZa7qfbDPwW80kIdh4BTgAcrbDubLF+neBkT3F+dR3EVoe6npjnV35654FUtiD1mbu5/pCn2e+bmzsOBbSc8umZaoGuN5d88T5m7B/LFGDD//92ZK6FlnZl9FtBxwNy+WunRsNHMfvRs+6xl32R3datjji9E19HpqY4QHUHGF1Ei44sokfFFlMj4IkpkfBElMr6IEhlfRImML6JExhdRIuOLKJHxRZTI+CJKZHwRJTK+iBIZX0SJjC+iRMYXUSLjiyiR8UWUyPgiSmR8ESUyvoiSHmC40yKEqJvGSwCGOi1EiDpJP0ltCPf2i8XOyRGiHpofITiAe9XLYdxrY4Q4IfE9O3OA/97V1EA3wuKEQQ+NFVGis7iIEhlfRImML6JExhdRIuOLKJHxRZTI+CJKZHwRJTK+iBIZX0SJjC+iRMYXUSLjiyj5F0iGJ71LQf9vAAAAAElFTkSuQmCC" alt="Popeyes"    style="height:36px;width:auto"></div>
+            <div class="bn">Popeyes</div>
+          </div>
+          <div><span class="bv">11%</span><span class="bu">das unidades</span></div>
+        </div>
+      </div>
+      <div class="reveal d4">
+        <div class="brow" style="opacity:.55">
+          <div class="brand-left">
+            <div class="brand-logo-box sbx-box"><img src="data:image/png;base64,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"  alt="Starbucks" style="height:50px;width:auto"></div>
+            <div class="bn">Starbucks</div>
+          </div>
+          <div><span class="bv">2%</span><span class="bu">das unidades</span></div>
+        </div>
+      </div>
     </div>
     <div class="reveal d4"><div class="tags" style="margin-top:24px"><div class="tag">Resíduo Comum</div><div class="tag">Reciclável</div><div class="tag">Orgânicos</div><div class="tag">Óleo Vegetal</div><div class="tag">Papelão</div></div></div>
   </div>
@@ -321,13 +346,62 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
     <div class="reveal"><div class="ey"><div class="ey-dot"></div>Distribuição por Estado<div class="ey-line"></div></div></div>
     <div class="reveal d1"><h2 class="h2">Operações adaptadas<br>a cada região.</h2></div>
     <div class="reveal d2"><p class="bd">Uma rede presente em grande parte do território nacional, com coletas em 20 estados.</p></div>
-    <div class="sgrid">
-      <div class="reveal d2"><div class="srow"><span class="sn">SP</span><span class="sv">48%<span class="su">das lojas</span></span></div></div>
-      <div class="reveal d2"><div class="srow"><span class="sn">RJ</span><span class="sv">13%<span class="su">das lojas</span></span></div></div>
-      <div class="reveal d3"><div class="srow"><span class="sn">MG</span><span class="sv">7%<span class="su">das lojas</span></span></div></div>
-      <div class="reveal d3"><div class="srow"><span class="sn">PR</span><span class="sv">7%<span class="su">das lojas</span></span></div></div>
-      <div class="reveal d4"><div class="srow"><span class="sn">RS</span><span class="sv">4%<span class="su">das lojas</span></span></div></div>
-      <div class="reveal d4"><div class="srow"><span class="sn">Demais estados</span><span class="sv">21%<span class="su">das lojas</span></span></div></div>
+    <div class="reveal d2" style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;margin-top:28px">
+      <!-- Brazil SVG Map -->
+      <svg width="280" height="320" viewBox="0 0 280 330" style="flex-shrink:0">
+        <!-- Brazil outline -->
+        <path d="
+          M 60,22 L 80,14 L 115,10 L 150,8 L 185,12 L 215,18 L 238,28
+          C 248,40 252,58 250,78
+          C 248,98 242,115 248,135
+          C 254,155 260,170 258,190
+          C 256,210 248,228 245,245
+          C 242,262 245,278 240,292
+          C 235,306 224,316 210,322
+          C 196,328 178,330 162,328
+          C 146,326 130,320 116,310
+          C 102,300 90,286 80,270
+          C 70,254 62,236 56,218
+          C 50,200 48,180 50,162
+          C 52,144 58,128 54,110
+          C 50,92 40,76 38,60
+          C 36,46 46,32 60,22 Z"
+          fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+        <!-- State bubbles — size proportional to % of stores -->
+        <!-- SP 48% — r=34 -->
+        <circle cx="195" cy="238" r="34" fill="rgba(255,186,134,0.85)" opacity="0.9"/>
+        <text x="195" y="243" text-anchor="middle" fill="#1a1a1a" font-size="11" font-weight="700" font-family="Inter,Arial,sans-serif">SP</text>
+        <!-- RJ 13% — r=18 -->
+        <circle cx="220" cy="215" r="18" fill="rgba(255,186,134,0.7)"/>
+        <text x="220" y="219" text-anchor="middle" fill="#1a1a1a" font-size="9" font-weight="700" font-family="Inter,Arial,sans-serif">RJ</text>
+        <!-- MG 7% — r=13 -->
+        <circle cx="185" cy="200" r="13" fill="rgba(255,186,134,0.6)"/>
+        <text x="185" y="204" text-anchor="middle" fill="#1a1a1a" font-size="8" font-weight="700" font-family="Inter,Arial,sans-serif">MG</text>
+        <!-- PR 7% — r=13 -->
+        <circle cx="175" cy="265" r="13" fill="rgba(255,186,134,0.6)"/>
+        <text x="175" y="269" text-anchor="middle" fill="#1a1a1a" font-size="8" font-weight="700" font-family="Inter,Arial,sans-serif">PR</text>
+        <!-- RS 4% — r=10 -->
+        <circle cx="155" cy="298" r="10" fill="rgba(255,186,134,0.5)"/>
+        <text x="155" y="302" text-anchor="middle" fill="#1a1a1a" font-size="7" font-weight="700" font-family="Inter,Arial,sans-serif">RS</text>
+        <!-- GO 3% — r=9 -->
+        <circle cx="148" cy="178" r="9" fill="rgba(255,186,134,0.45)"/>
+        <text x="148" y="182" text-anchor="middle" fill="#1a1a1a" font-size="7" font-weight="700" font-family="Inter,Arial,sans-serif">GO</text>
+        <!-- Smaller dots for other states -->
+        <circle cx="105" cy="125" r="4" fill="rgba(255,186,134,0.3)"/>
+        <circle cx="185" cy="90" r="4" fill="rgba(255,186,134,0.3)"/>
+        <circle cx="220" cy="115" r="4" fill="rgba(255,186,134,0.3)"/>
+        <circle cx="78" cy="170" r="4" fill="rgba(255,186,134,0.3)"/>
+        <circle cx="130" cy="150" r="4" fill="rgba(255,186,134,0.3)"/>
+      </svg>
+      <!-- State legend -->
+      <div style="display:flex;flex-direction:column;gap:8px;padding-top:8px">
+        <div class="srow-l"><span class="sn-l">SP</span><span class="sv-l">48%<span class="su">das lojas</span></span></div>
+        <div class="srow-l"><span class="sn-l">RJ</span><span class="sv-l">13%<span class="su">das lojas</span></span></div>
+        <div class="srow-l"><span class="sn-l">MG</span><span class="sv-l">7%<span class="su">das lojas</span></span></div>
+        <div class="srow-l"><span class="sn-l">PR</span><span class="sv-l">7%<span class="su">das lojas</span></span></div>
+        <div class="srow-l"><span class="sn-l">RS</span><span class="sv-l">4%<span class="su">das lojas</span></span></div>
+        <div class="srow-l"><span class="sn-l">Demais estados</span><span class="sv-l">21%<span class="su">das lojas</span></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -356,8 +430,7 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
     <div class="reveal d2"><p class="bd">Com 12 meses de operação, mapeamos o padrão de cada loja. Sabemos onde está o potencial da rede.</p></div>
     <div class="tgrid">
       <div class="reveal d2"><div class="tc t-top"><div class="tl tl-o">Top · 8%</div><div class="tn" style="color:var(--o)">59 lojas</div><div class="ts">Volume 2,6× acima da média da rede</div></div></div>
-      <div class="reveal d3"><div class="tc t-mid"><div class="tl tl-g">Middle · 60%</div><div class="tn" style="color:#ccc">423 lojas</div><div class="ts">Referência da rede. Potencial de crescimento.</div></div></div>
-      <div class="reveal d4"><div class="tc t-bot"><div class="tl tl-d">Bottom · 32%</div><div class="tn" style="color:#555">225 lojas</div><div class="ts">70% abaixo da média. 31 sem coleta ativa.</div></div></div>
+      <div class="reveal d3"><div class="tc t-mid"><div class="tl tl-g">Middle · 60%</div><div class="tn" style="color:#ccc">423 lojas</div><div class="ts">Referência da rede. Maior potencial de crescimento imediato.</div></div></div>
     </div>
     <div class="reveal d4"><p style="margin-top:22px;font-size:13px;color:#444;font-style:italic;font-family:'Playfair Display',Georgia,serif">Elevar o middle ao nível do top é o maior ganho disponível com a estrutura já montada.</p></div>
   </div>
@@ -389,7 +462,7 @@ body{font-family:var(--sans);background:var(--dk2);overflow-x:hidden}
         <div class="cta-role">Diretor Comercial · Musa</div>
         <div class="cta-contact">
           <a href="mailto:anderson.ferreira@musa.co">anderson.ferreira@musa.co</a><br>
-          <a href="tel:+5511964376555">+55 11 96437-6555</a>
+          <a href="tel:5511932328364">+55 11 93232-8364</a>
         </div>
         <div class="cta-tagline">Nada se perde, tudo se transforma.</div>
       </div>

@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 370 390'%3E%3Crect width='370' height='390' rx='80' fill='%23222222'/%3E%3Cpath d='M81.08 69.94C51.23 100.14 32.8 141.64 32.8 187.47C32.8 233.29 51.23 274.79 81.08 304.99C33.69 287 0 241.17 0 187.47C0 133.77 33.69 87.93 81.08 69.94Z' fill='%23FFBA86'/%3E%3Cpath d='M361.49 148.01C350.99 106.87 324.9 69.7 285.62 46.1C246.35 22.5 201.26 16.92 160.03 26.95C199.84 -4.42 256.49 -9.7 302.52 17.97C348.55 45.62 370.49 98.1 361.49 148.01Z' fill='%23FFBA86'/%3E%3Cpath d='M361.49 231.13C350.99 272.27 324.9 309.45 285.62 333.05C246.35 356.65 201.26 362.22 160.03 352.2C199.84 383.56 256.49 388.84 302.52 361.18C348.55 333.52 370.49 281.04 361.49 231.13Z' fill='%23FFBA86'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg%20width=%22364%22%20height=%22380%22%20viewBox=%220%200%20364%20380%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22><rect%20width=%22364%22%20height=%22380%22%20rx=%2272%22%20fill=%22%23222222%22/>%20<path%20d=%22M81.0801%2069.9401C51.2328%20100.14%2032.8%20141.644%2032.8%20187.467C32.8%20233.29%2051.2328%20274.794%2081.0801%20304.994C33.6925%20287.002%200%20241.168%200%20187.467C0%20133.766%2033.6925%2087.9321%2081.0801%2069.9401Z%22%20fill=%22#F5F5F5%22/>%20<path%20d=%22M361.486%20148.012C350.986%20106.872%20324.895%2069.6977%20285.617%2046.0976C246.349%2022.4974%20201.265%2016.9224%20160.025%2026.9486C199.843%20-4.41911%20256.486%20-9.69663%20302.518%2017.9691C348.551%2045.6238%20370.487%2098.1016%20361.486%20148.001V148.012Z%22%20fill=%22#F5F5F5%22/>%20<path%20d=%22M361.486%20231.131C350.986%20272.272%20324.895%20309.446%20285.617%20333.046C246.349%20356.646%20201.265%20362.221%20160.025%20352.195C199.843%20383.563%20256.486%20388.84%20302.518%20361.175C348.551%20333.52%20370.487%20281.042%20361.486%20231.142V231.131Z%22%20fill=%22#F5F5F5%22/>%20</svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Musa — Case Food Service</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,6 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--tl);overflow-x:hidden}
 #pf{position:fixed;top:0;left:0;height:2px;z-index:999;background:linear-gradient(90deg,var(--orange),var(--blue));width:0;transition:width .1s linear}
 
-#logo-fixed{position:fixed;top:1.5rem;left:50%;transform:translateX(-50%);z-index:200;width:56px;transition:filter .3s}
 .side-dots{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:200;display:flex;flex-direction:column;gap:8px}
 .side-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.18);cursor:pointer;border:none;padding:0;transition:background .3s,transform .3s;flex-shrink:0}
 .side-dot.active{background:var(--orange);transform:scale(1.6)}
@@ -132,17 +131,37 @@ body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--tl);overf
   animation: bubblePulse 2.8s ease-in-out infinite;
   opacity: 0.75;
 }
+
+#logo-fixed{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:52px;
+  padding:0 2rem;
+  background:rgba(28,28,28,0.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  display:flex;align-items:center;
+  transition:background .3s,border-color .3s;
+}
+#logo-fixed svg{height:22px;width:auto;display:block}
+
 </style>
 </head>
 <body>
 
 <div id="pf"></div>
 
-<svg id="logo-fixed" viewBox="0 0 370 390" xmlns="http://www.w3.org/2000/svg">
-  <path d="M81.08 69.94C51.23 100.14 32.8 141.64 32.8 187.47C32.8 233.29 51.23 274.79 81.08 304.99C33.69 287 0 241.17 0 187.47C0 133.77 33.69 87.93 81.08 69.94Z" fill="#F5F5F5"/>
-  <path d="M361.49 148.01C350.99 106.87 324.9 69.7 285.62 46.1C246.35 22.5 201.26 16.92 160.03 26.95C199.84 -4.42 256.49 -9.7 302.52 17.97C348.55 45.62 370.49 98.1 361.49 148.01Z" fill="#F5F5F5"/>
-  <path d="M361.49 231.13C350.99 272.27 324.9 309.45 285.62 333.05C246.35 356.65 201.26 362.22 160.03 352.2C199.84 383.56 256.49 388.84 302.52 361.18C348.55 333.52 370.49 281.04 361.49 231.13Z" fill="#F5F5F5"/>
+<div id="logo-fixed">
+  <svg viewBox="0 0 1386 380" preserveAspectRatio="xMinYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M619.536 222.823L538.313 58.6137H490.43V316.574H516.289V72.4741L593.094 231.131H646.067L722.773 72.4741V316.574H748.632V58.6137H700.749L619.525 222.823H619.536Z" fill="#F5F5F5"/>
+<path d="M941.869 215.651C941.869 239.395 935.589 258.4 923.04 272.646C910.491 286.903 893.556 294.01 872.281 294.01C855.787 294.01 843.117 288.732 834.247 278.177C825.367 267.622 820.938 252.451 820.938 232.663V115.896H795.839V237.411C795.839 262.488 801.668 282.607 813.336 297.778C824.992 312.95 842.863 320.541 866.959 320.541C886.736 320.541 907.968 314.492 921.211 303.485C934.454 292.478 937.914 286.683 941.869 277.439V316.574H967.343V115.907H941.869V215.651Z" fill="#F5F5F5"/>
+<path d="M1149.23 222.514C1137.7 214.989 1123.05 209.656 1105.31 206.483L1077.94 201.338C1062.22 198.44 1051.25 194.672 1045.05 190.067C1038.83 185.45 1035.73 178.531 1035.73 169.287C1035.73 158.732 1040.03 150.557 1048.65 144.739C1057.27 138.944 1068.67 136.035 1082.87 136.035C1100.1 136.035 1113.54 140.002 1123.19 147.913C1132.8 155.823 1137.88 166.643 1138.4 180.371H1164.63C1163.62 159.008 1156.21 142.238 1142.39 130.097C1128.57 117.955 1109.24 111.895 1084.39 111.895C1062.33 111.895 1044.46 116.842 1030.77 126.736C1017.07 136.63 1010.24 150.953 1010.24 169.684C1010.24 187.367 1015.31 200.027 1025.46 207.684C1035.59 215.342 1050.17 221.005 1069.19 224.707L1098.85 230.249C1114.82 233.411 1125.85 237.377 1131.92 242.126C1138.02 246.875 1141.05 253.871 1141.05 263.104C1141.05 273.923 1136.74 282.176 1128.12 287.85C1119.51 293.524 1107.72 296.355 1092.75 296.355C1075.26 296.355 1060.93 292.345 1049.77 284.28C1038.61 276.237 1032.92 265.351 1032.66 251.623H1006.8C1007.31 272.733 1015.23 289.491 1030.58 301.897C1045.91 314.304 1066.14 320.496 1091.23 320.496C1113.8 320.496 1131.99 315.548 1145.8 305.654C1159.62 295.761 1166.54 281.437 1166.54 262.707C1166.54 243.977 1160.77 230.05 1149.24 222.525L1149.23 222.514Z" fill="#F5F5F5"/>
+<path d="M1378.37 290.009C1374.56 290.009 1371.59 289.414 1370.06 287.563C1368.55 285.712 1368.09 282.098 1368.09 277.35V189.879C1368.09 137.886 1339.95 111.895 1283.67 111.895C1259.57 111.895 1240.13 118.429 1225.3 131.496C1210.47 144.552 1202.53 162.963 1201.52 186.717H1227.38C1230.67 152.683 1250.06 135.661 1285.56 135.661C1304.57 135.661 1318.89 140.354 1328.53 149.719C1338.16 159.096 1342.99 171.689 1342.99 187.522C1342.99 193.846 1337.34 197.878 1326.06 199.597C1314.77 201.316 1297.47 202.44 1274.16 202.958C1251.34 203.486 1233.09 208.301 1219.39 217.413C1205.69 226.525 1198.86 240.44 1198.86 259.181C1198.86 277.923 1205.25 292.819 1218.06 303.914C1230.86 314.998 1247.41 320.529 1267.68 320.529C1285.42 320.529 1303.47 317.058 1317.31 308.85C1331.5 300.421 1341.56 285.999 1343.36 277.394V292.092C1343.36 305.61 1354.34 316.584 1367.85 316.584H1385.96V290.075H1378.35V290.031L1378.37 290.009ZM1343 244.098C1343 254.389 1339.52 263.5 1332.54 271.411C1325.56 279.322 1316.51 285.404 1305.35 289.613C1294.19 293.843 1282.79 296.091 1271.13 296.344C1256.93 296.344 1245.52 293.182 1236.91 286.836C1228.29 280.512 1223.98 271.4 1223.98 259.523C1223.98 239.999 1238.19 228.915 1266.57 226.271C1266.57 226.271 1305.6 223.638 1309.91 223.109C1309.91 223.109 1326.2 222.117 1338.76 220.498C1341 220.2 1343 221.963 1343 224.233V244.087V244.098Z" fill="#F5F5F5"/>
+<path d="M81.0801 69.94C51.2328 100.14 32.8 141.644 32.8 187.467C32.8 233.29 51.2328 274.794 81.0801 304.994C33.6925 287.002 0 241.168 0 187.467C0 133.766 33.6925 87.9321 81.0801 69.94Z" fill="#F5F5F5"/>
+<path d="M361.486 148.012C350.986 106.872 324.895 69.6977 285.617 46.0976C246.349 22.4974 201.265 16.9224 160.025 26.9486C199.843 -4.41911 256.486 -9.69663 302.518 17.9691C348.551 45.6238 370.487 98.1016 361.486 148.001V148.012Z" fill="#F5F5F5"/>
+<path d="M361.486 231.131C350.986 272.272 324.895 309.446 285.617 333.046C246.349 356.646 201.265 362.221 160.025 352.195C199.843 383.563 256.486 388.84 302.518 361.175C348.551 333.52 370.487 281.042 361.486 231.142V231.131Z" fill="#F5F5F5"/>
 </svg>
+</div>
 
 <nav class="side-dots" id="sideDots"></nav>
 
@@ -150,14 +169,14 @@ body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--tl);overf
 <section class="section dark" data-bg="dark">
   <div class="wn">
     <div class="tag reveal">Grandes Redes · Case Real</div>
-    <h1 class="h1 reveal" style="max-width:600px">Como a Musa gerencia resíduos de uma das maiores redes de food service do Brasil.</h1>
-    <p class="body reveal" style="margin-bottom:2.2rem">Centenas de lojas. Múltiplas marcas. Presença em 20 estados. Um único sistema que transformou resíduo em dado e dado em resultado operacional e ESG.</p>
+    <h1 class="h1 reveal" style="max-width:600px">Como a Musa transformou a gestão de resíduos das maiores redes de food service e varejo do Brasil.</h1>
+    <p class="body reveal" style="margin-bottom:2.2rem">Múltiplas marcas. Presença em todo o Brasil. Um único sistema que transformou resíduo em dado e dado em resultado operacional e ESG.</p>
     <div class="pills reveal">
-      <span class="pill">800+ unidades</span>
-      <span class="pill">3 marcas</span>
-      <span class="pill">20 estados</span>
-      <span class="pill">+50 mil MTRs</span>
+      <span class="pill">Multimarca</span>
+      <span class="pill">Cobertura nacional</span>
+      <span class="pill">Milhares de MTRs</span>
       <span class="pill">100% conformidade</span>
+      <span class="pill">Impacto ESG</span>
     </div>
   </div>
   <div style="position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden">
@@ -205,23 +224,18 @@ body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--tl);overf
   <div class="wn">
     <p class="label reveal">O ponto de partida</p>
     <h2 class="h2 reveal" style="max-width:500px">Sem dado, não há eficiência. Sem integração, não há escala.</h2>
-    <p class="body reveal">Redes com muitas unidades frequentemente encontram desafios crescentes na gestão de resíduos. Quanto maior a escala, maior a complexidade de coordenar fornecedores, documentação e conformidade.</p>
     <div class="prob-list reveal-u">
       <div class="prob-item">
         <div class="prob-dot"></div>
-        <p class="prob-text"><strong>Múltiplos operadores, contratos independentes.</strong> Dezenas de fornecedores de coleta com documentações e processos diferentes, difícil de gerir de forma centralizada sem um sistema dedicado.</p>
+        <p class="prob-text"><strong>Gestão fragmentada entre fornecedores.</strong> Dezenas de operadores, cada um com seu processo, sem visibilidade centralizada.</p>
       </div>
       <div class="prob-item">
         <div class="prob-dot"></div>
-        <p class="prob-text"><strong>Documentação dispersa.</strong> MTRs e certificados armazenados em e-mails, pastas físicas e sistemas desconectados, o que dificulta auditorias e aumenta o risco regulatório.</p>
+        <p class="prob-text"><strong>Documentação difícil de acessar.</strong> MTRs e certidões dispersos, tornando auditorias um desafio constante.</p>
       </div>
       <div class="prob-item">
         <div class="prob-dot"></div>
-        <p class="prob-text"><strong>Visibilidade limitada sobre a operação.</strong> Sem dados consolidados sobre o que é coletado, onde, quando e por quem. Sem essa visibilidade, fica difícil tomar decisões assertivas e estruturar relatórios ESG.</p>
-      </div>
-      <div class="prob-item">
-        <div class="prob-dot"></div>
-        <p class="prob-text"><strong>Exposição regulatória crescente.</strong> Órgãos ambientais exigem rastreabilidade completa. Sem um sistema estruturado, qualquer auditoria pode se tornar um desafio operacional.</p>
+        <p class="prob-text"><strong>Zero dados para decidir.</strong> Sem indicadores consolidados, ESG e conformidade ficam no achismo.</p>
       </div>
     </div>
   </div>
@@ -231,27 +245,27 @@ body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--tl);overf
 <section class="section light" data-bg="light">
   <div class="wn">
     <p class="label reveal">O escopo da operação</p>
-    <h2 class="h2 reveal" style="color:var(--td)">Múltiplas marcas.<br>Centenas de lojas.<br>Uma só gestão.</h2>
-    <p class="body reveal" style="color:var(--ml)">Em uma das maiores operadoras de food service do Brasil, a Musa centralizou todos os fluxos de resíduos de múltiplas marcas, em todos os estados onde operam.</p>
+    <h2 class="h2 reveal" style="color:var(--td)">Múltiplas marcas.<br>Milhares de pontos.<br>Uma só gestão.</h2>
+    <p class="body reveal" style="color:var(--ml)">A Musa centraliza toda a gestão de resíduos de redes multimarca — do ponto de coleta ao relatório ESG, com rastreabilidade em tempo real.</p>
     <div class="kpi-row light">
       <div class="kpi-block">
-        <span class="kpi-n" data-target="800" data-suf="+">800+</span>
+        <span class="kpi-n">+1.000</span>
         <span class="kpi-l">Unidades ativas</span>
-        <span class="kpi-x">Todas gerenciadas em um só portal</span>
+        <span class="kpi-x">Gerenciadas em um único portal</span>
       </div>
       <div class="kpi-block">
-        <span class="kpi-n" data-target="3">3</span>
-        <span class="kpi-l">Marcas</span>
-        <span class="kpi-x">Um único sistema integrado</span>
+        <span class="kpi-n">+50</span>
+        <span class="kpi-l">Marcas atendidas</span>
+        <span class="kpi-x">De food service a varejo especializado</span>
       </div>
       <div class="kpi-block">
-        <span class="kpi-n" data-target="5">5</span>
+        <span class="kpi-n">+15</span>
         <span class="kpi-l">Tipos de resíduo</span>
-        <span class="kpi-x">Comum, reciclável, orgânico, óleo, papelão</span>
+        <span class="kpi-x">Do comum ao especial, tudo rastreado</span>
       </div>
     </div>
     <div class="hl reveal-u" style="border-color:rgba(0,0,0,.1);background:rgba(255,186,134,.06)">
-      <p style="color:rgba(0,0,0,.55)">Cada marca tinha seu próprio histórico de fornecedores e processos. A Musa <strong style="color:#B8783A">centralizou tudo em um único fluxo rastreável</strong>, sem substituir o que já funcionava, apenas dando visibilidade e controle sobre toda a cadeia.</p>
+      <p style="color:rgba(0,0,0,.55)">Cada operação chega com seu histórico de fornecedores e processos. A Musa <strong style="color:#B8783A">centraliza tudo em um único fluxo rastreável</strong>, sem substituir o que já funciona, apenas dando visibilidade e controle sobre toda a cadeia.</p>
     </div>
   </div>
 </section>
@@ -260,28 +274,23 @@ body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--tl);overf
 <section class="section dark2" data-bg="dark">
   <div class="wn">
     <p class="label reveal">Conformidade e rastreabilidade</p>
-    <h2 class="h2 reveal">+50 operadores.<br>Um único contrato.</h2>
-    <p class="body reveal">Dezenas de fornecedores, centenas de documentos, 9 órgãos regulatórios. A Musa centralizou tudo e manteve 100% da operação em conformidade.</p>
+    <h2 class="h2 reveal">Média de 25 operadores.<br>Um único contrato.</h2>
+    <p class="body reveal">Todos os fornecedores de coleta centralizados em um único contrato com a Musa. Sem burocracia, sem retrabalho, sem risco regulatório.</p>
     <div class="kpi-row">
       <div class="kpi-block">
-        <span class="kpi-n" data-target="590">590</span>
-        <span class="kpi-l">Docs validados</span>
-        <span class="kpi-x">Licenças, alvarás, certidões</span>
+        <span class="kpi-n">250+</span>
+        <span class="kpi-l">Documentações homologadas</span>
+        <span class="kpi-x">Por contrato, em média</span>
       </div>
       <div class="kpi-block">
-        <span class="kpi-n">+50 mil</span>
-        <span class="kpi-l">MTRs emitidos</span>
-        <span class="kpi-x">Ao longo de 12 meses</span>
+        <span class="kpi-n">+10.000</span>
+        <span class="kpi-l">MTRs gerenciados/mês</span>
+        <span class="kpi-x">Emitidos, armazenados e acessíveis</span>
       </div>
       <div class="kpi-block">
-        <span class="kpi-n" style="color:var(--orange)" data-target="93" data-suf=",3%">93,3%</span>
-        <span class="kpi-l">MTRs disponiveis</span>
-        <span class="kpi-x">Dos últimos 90 dias no portal</span>
-      </div>
-      <div class="kpi-block">
-        <span class="kpi-n" style="color:var(--green)" data-target="100" data-suf="%">100%</span>
-        <span class="kpi-l">Conformidade</span>
-        <span class="kpi-x">Durante todo o período</span>
+        <span class="kpi-n" style="color:var(--orange)">100%</span>
+        <span class="kpi-l">MTRs disponíveis</span>
+        <span class="kpi-x">Acessíveis no portal a qualquer momento</span>
       </div>
     </div>
   </div>
@@ -295,23 +304,18 @@ body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--tl);overf
     <p class="body reveal">Com consistência, cobertura nacional e índice de sucesso sustentado em escala nacional.</p>
     <div class="kpi-row">
       <div class="kpi-block">
-        <span class="kpi-n">54.248</span>
-        <span class="kpi-l">Coletas em 12 meses</span>
-        <span class="kpi-x">Do piloto à escala nacional</span>
+        <span class="kpi-n">+2.500</span>
+        <span class="kpi-l">Coletas por dia</span>
+        <span class="kpi-x">Em escala nacional</span>
       </div>
       <div class="kpi-block">
-        <span class="kpi-n" style="color:var(--orange)" data-target="92" data-suf=",5%">92,5%</span>
+        <span class="kpi-n" style="color:var(--orange)">97,5%</span>
         <span class="kpi-l">Taxa de sucesso</span>
         <span class="kpi-x">Coletas realizadas com êxito</span>
       </div>
       <div class="kpi-block">
-        <span class="kpi-n" data-target="174">174</span>
-        <span class="kpi-l">Coletas / dia</span>
-        <span class="kpi-x">Média ao longo dos 12 meses</span>
-      </div>
-      <div class="kpi-block">
-        <span class="kpi-n">7.800 t</span>
-        <span class="kpi-l">Gerenciadas</span>
+        <span class="kpi-n">+6.000 t</span>
+        <span class="kpi-l">Gerenciadas por mês</span>
         <span class="kpi-x">Destinadas corretamente</span>
       </div>
     </div>
@@ -347,23 +351,23 @@ body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--tl);overf
     <div style="width:100%;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem;align-items:center" class="screen6-grid">
       <div style="max-width:460px">
         <p class="label reveal">Presença nacional</p>
-        <h2 class="h2 reveal">Onde a rede está, a Musa está junto.</h2>
-        <p class="body reveal" style="color:var(--ml)">O mesmo padrão de gestão em todos os estados, independentemente da região ou do operador local.</p>
+        <h2 class="h2 reveal">Presença nacional.<br>Padrão único.</h2>
+        <p class="body reveal" style="color:var(--ml)">Do Norte ao Sul, a Musa garante o mesmo nível de rastreabilidade e conformidade em cada ponto da operação.</p>
         <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:.35rem" class="reveal-u">
           <div class="kpi-block" style="padding:.6rem .9rem;flex:none">
-            <span class="kpi-n" style="color:var(--td);font-size:1.4rem;margin-bottom:.15rem" data-target="20">20</span>
+            <span class="kpi-n" style="color:var(--td);font-size:1.4rem;margin-bottom:.15rem">26</span>
             <span class="kpi-l" style="color:var(--ml)">Estados</span>
             <span class="kpi-x" style="color:rgba(0,0,0,.38)">Cobertura nacional</span>
           </div>
           <div class="kpi-block" style="padding:.6rem .9rem;flex:none">
-            <span class="kpi-n" style="color:var(--td);font-size:1.4rem;margin-bottom:.15rem" data-target="189">189</span>
+            <span class="kpi-n" style="color:var(--td);font-size:1.4rem;margin-bottom:.15rem">+300</span>
             <span class="kpi-l" style="color:var(--ml)">Municípios</span>
             <span class="kpi-x" style="color:rgba(0,0,0,.38)">Capilaridade real</span>
           </div>
           <div class="kpi-block" style="padding:.6rem .9rem;flex:none">
-            <span class="kpi-n" style="color:var(--td);font-size:1.4rem;margin-bottom:.15rem">7.800 t</span>
-            <span class="kpi-l" style="color:var(--ml)">Gerenciadas</span>
-            <span class="kpi-x" style="color:rgba(0,0,0,.38)">Destinadas corretamente</span>
+            <span class="kpi-n" style="color:var(--td);font-size:1.4rem;margin-bottom:.15rem">+3.000</span>
+            <span class="kpi-l" style="color:var(--ml)">Pontos de coleta</span>
+            <span class="kpi-x" style="color:rgba(0,0,0,.38)">Ativos e rastreados</span>
           </div>
         </div>
       </div>
@@ -460,8 +464,20 @@ body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--tl);overf
 <section class="section dark" data-bg="dark">
   <div class="wn">
     <p class="label reveal">A solução Musa</p>
-    <h2 class="h2 reveal" style="max-width:460px">Tudo em um sistema.<br>Gestão sem fragmentação.</h2>
-    <p class="body reveal">Da coleta ao relatório ESG, do operador ao portal de gestão: a Musa conecta cada ponto da sua cadeia de resíduos em tempo real.</p>
+    <h2 class="h2 reveal" style="max-width:460px">Tudo em um sistema.<br>Gestão com mais controle.</h2>
+    <p class="body reveal">A Musa não substitui sua equipe — ela dá a ela os dados e as ferramentas para tomar melhores decisões sobre resíduos em tempo real.</p>
+
+    <!-- Portal Video -->
+    <div class="reveal-s" style="margin:1.75rem 0;width:100%;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 8px 32px rgba(0,0,0,.4)">
+      <video
+        src="portalmusa.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        style="width:100%;display:block;max-height:420px;object-fit:cover"
+      ></video>
+    </div>
     <div style="display:flex;flex-direction:column;gap:.75rem;margin:1.75rem 0;width:100%" class="reveal-u">
 
       <div class="kpi-block" style="flex:none;display:flex;align-items:flex-start;gap:1.25rem;padding:1.25rem 1.5rem">
@@ -537,7 +553,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const isL=secs[ai]?.dataset.bg==='light';
     dots.forEach((d,i)=>{d.classList.toggle('active',i===ai);d.classList.toggle('light-bg',isL);});
     const lg=document.getElementById('logo-fixed');
-    if(lg)lg.style.filter=isL?'brightness(0)':'none';
+    if(lg){lg.style.background=isL?'rgba(249,237,228,0.88)':'rgba(28,28,28,0.82)';lg.style.borderBottomColor=isL?'rgba(0,0,0,.1)':'rgba(255,255,255,.07)';const paths=lg.querySelectorAll('path');paths.forEach(p=>{p.style.fill=isL?'#222222':'#F5F5F5';});}
 
   }
   window.addEventListener('scroll',upd,{passive:true});upd();
